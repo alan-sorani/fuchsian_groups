@@ -1,0 +1,170 @@
+\documentclass[10pt, twoside]{book}
+
+%%%%%%%%%
+% Maths %
+%%%%%%%%%
+
+\usepackage{math-fonts}
+\usepackage{math-graphics}
+\usepackage{math-symbols}
+\usepackage{math-theorems}
+
+%%%%%%%%%
+% Title %
+%%%%%%%%%
+
+\title{Lecture Notes to Fuchsian Groups \\ \large{Winter 2020, Technion}}
+\author{Lectures by Chen Meiri \\ \small{Typed by Elad Tzorani}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\chapter{Preliminaries}
+
+\section{The Hyperbolic Plane}
+
+\subsection{The Riemann Sphere}
+
+\begin{definition}[The Riemann Sphere]
+The \emph{Riemann sphere} is a one-dimensional complex manifold, denoted $\hat{\mbb{C}} = \mbb{C} \cup \set{\infty}$, the charts of which are the following.
+\begin{align*}
+U_1 &= \prs{\mbb{C}, f_1} \\
+U_2 &= \prs{\hat{\mbb{C}} \setminus \set{0}, f_2}
+\end{align*}
+where
+\begin{align*}
+f_1 \colon \mbb{C} &\to \mbb{C} \\
+z &\mapsto z
+\end{align*}
+and
+\begin{align*}
+f_2 \colon \mbb{C} &\to \hat{\mbb{C}} \setminus \set{0} \\
+z &\mapsto \frac{1}{z} \text{.}
+\end{align*}
+\end{definition}
+
+\begin{definition}[Möbius Transformation]
+A map $T \colon \hat{\mbb{C}} \to \hat{\mbb{C}}$ of the form
+\[z \mapsto \frac{az + b}{cz + d}\]
+where $ad - bc \neq 0$ is called a \emph{Möbius transformation}.
+\end{definition}
+
+\begin{notation}
+\begin{enumerate}
+\item We denote the image of $\pmat{a & b \\ c & d} \in \mrm{GL}_2\prs{\mbb{C}}$ in $\mrm{PGL}_2\prs{\mbb{C}}$ by $\bmat{a & b \\ c & d}$.
+\item For every $g = \bmat{a & b \\ c & d} \in \mrm{PGL}_2\prs{\mbb{C}}$, we denote by $T_g$ the Möbius transformation $z \mapsto \frac{az + b}{cz + d}$.
+\end{enumerate}
+\end{notation}
+
+\begin{lemma}
+The set of Möbius transformations is a group under composition, and the map $g \mapsto T_g$ is an isomorphism between $\mrm{PGL}_2\prs{\mbb{C}}$ and the group of Möbius transformation.
+\end{lemma}
+
+\begin{proof}
+It holds that
+\begin{align*}
+T_{g_1} \circ T_{g_2} \prs{z} &=  \frac{a_1 \prs{\frac{a_2 z + b_2}{c_2 z + d_2}} + 1}{c_1 \prs{\frac{a_2 z + b_2}{c_2 z + d_2}} + d_1}
+\\&= \frac{\prs{a_1 a_2 + b_1 c_2} z + \prs{a_1 b_2 + b_1 d_2}}{\prs{c_1 a_2 + d_1 c_2} z + \prs{c_1 b_2 + d_1 d_2}}
+\\&= T_{g_1 g_2}\prs{z} \text{.}
+\end{align*}
+In particular, $T_{g^{-1}}$ is the inverse of $T_g$.
+
+The rest of the proof is clear.
+\end{proof}
+
+\begin{definition}[Generalised Circle]
+A generalised circle in $\mbb{C}$ is either an Euclidean circle or an Euclidean straight line.
+\end{definition}
+
+\begin{lemma}
+Let $T \colon \hat{\mbb{C}} \to \hat{\mbb{C}}$ be a Möbius transformation. Then
+\begin{enumerate}
+\item $T$ is an endomorphism of $\hat{\mbb{C}}$.
+\item $T$ is conformal.
+\item $T$ sends generalised circles to generalised circles.
+\end{enumerate}
+\end{lemma}
+
+\subsection{Models of the Hyperbolic Plane}
+
+\begin{definition}[The Upper Half Plane Model for the Hyperbolic Plane]
+\begin{enumerate}
+\item As a set, define $\mbb{H} \ceq \set{z \in \mbb{C}}{\Im\prs{z} > 0}$.
+\item Let $\gamma \colon \brs{0,1} \to \mbb{H}$ be a piecewise continuously differentiable path given by $\gamma\prs{t} = x\prs{t} + iy\prs{t}$ for real functions $x\prs{t}, y\prs{t}$.
+The \emph{hyperbolic length} of $\gamma$ is given by
+\[h\prs{\gamma} \ceq \int_0^1 \frac{\sqrt{\prs{\frac{\diff x}{\diff t}}^2 + \prs{\frac{\diff y}{\diff t}}^2}}{y\prs{t}} \diff t = \int_0^1 \frac{\abs{\frac{\diff \gamma}{\diff t}}}{y\prs{t}} \diff t \text{.}\]
+\item The \emph{hyperbolic distance} $\rho\prs{z,w}$ between two points $z,w \in \mbb{H}$ is defined as $\inf_\gamma h\prs{\gamma}$ where the infimum is taken over all piecewise continuously differentiable paths $\gamma$ from $z$ to $w$.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+$\mbb{H}$ is a Riemann surface where for every $z \in \mbb{H}$, the inner product of $T_z H$ is given by
+\[\prs{\prs{x_1, y_1},\prs{x_2,y_2}} = \frac{x_1 x_2 + y_1 y_2}{\prs{\Im z}^2} \text{.}\]
+In particular, Euclidean angles are equal to hyperbolic angles.
+\end{remark}
+
+\begin{definition}[The Disc Model for the Hyperbolic Plane]
+\begin{enumerate}
+\item As a set, define $\mbb{U} \ceq \set{z \in \mbb{C}}{\abs{z} < 1}$.
+\item Let $\gamma \colon \brs{0,1} \to \mbb{U}$ be a piecewise continuously differentiable path. The \emph{hyperbolic length} of $\gamma$ is given by
+\[h_u\prs{\gamma} \ceq \int_0^1 \frac{2 \abs{\frac{\diff \gamma}{\diff t}}}{1 - \abs{\gamma\prs{t}}^2} \diff t \text{.}\]
+
+\item The \emph{hyperbolic distance} $\rho_u\prs{z,w}$ between $z,w \in \mbb{U}$ is defined to be $\inf_\gamma h\prs{\gamma}$ where the infimum is taken over all piecewise differentiable paths from $z$ to $w$.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+It is clear that hyperbolic circles around $0$ are exactly Euclidean circles around it (with a generally different radius).
+\end{remark}
+
+\begin{remark}
+Rotations around $0$ are isometries in the disc model.
+\end{remark}
+
+\begin{lemma}
+Let $\pi$ be the Möbius transformation defined by
+\[\pi\prs{z} = \frac{iz + 1}{z + i} \text{.}\]
+Then
+\begin{enumerate}
+\item $\pi$ is a bijection from $\mbb{H}$ to $\mbb{U}$.
+\item For every piecewise differentiable path $\gamma \colon \brs{0,1} \to \mbb{H}$,it holds that $h_u\prs{\pi\prs{\gamma}} = h\prs{\gamma}$.
+In particular, $\pi$ is an isometry.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\begin{enumerate}
+\item It holds that
+\begin{align*}
+\pi\prs{-1} &= -1 \\
+\pi\prs{0} &= -i \\
+\pi\prs{1} = 1 \text{.}
+\end{align*}
+Since Möbius transformations send generalised circles to generalised circles we get that $\pi$ sends $\mbb{R}$ to the unit circle.
+Since $\pi\prs{i} = 0$ and $\pi$ is a homeomorphism of the Riemann sphere, we get the result.
+%TODO does it have to be continuously?
+\item Let $\gamma \colon \brs{0,1} \to \mbb{H}$ be a piecewise continuously differentiable path. Denote $\psi = \pi^{-1}$ and $\delta = \pi\prs{\gamma}$.
+Then
+\[\psi\prs{z} = \frac{iz - 1}{-z + i} = \frac{\prs{iz - 1}{- \bar{z} - i}}{\prs{-z + i}{-\bar{z} - i}} = \frac{\prs{z + \bar{z}} + i \prs{1 - \abs{z}^2}}{\abs{-z + i}^2} \text{.}\]
+So,
+\[\Im\prs{\psi\prs{z}} = \frac{1 - \abs{z}^2}{\abs{-z + i}^2} \text{.}\]
+Since
+\[\frac{\diff \psi}{\diff z} = \frac{-2}{\prs{-z+i}^2} \text{,}\]
+we get that
+\begin{align*}
+h\prs{\gamma} &= \int_0^1 \frac{\abs{\frac{\diff \gamma}{\diff t}}}{\Im\prs{\gamma\prs{t}}} \diff t
+\\&=
+\int_0^1 \frac{\abs{\frac{\diff \psi\prs{\delta}}{\diff t}}}{\Im \prs{\psi\prs{\delta\prs{t}}}} \diff t
+\\&=
+\int_0^1 \frac{\abs{\frac{\diff \psi}{\diff z} \prs{\delta\prs{t}} \frac{\diff \delta}{\del t}}}{\Im \prs{\psi\prs{\delta\prs{t}}}}
+\\&= \int_0^1 \frac{2 \abs{\frac{\diff \delta}{\diff t}}}{1 - \abs{\delta\prs{t}}^2} \diff t
+\\&= h_u\prs{\delta} \text{.}
+\end{align*}
+
+\end{enumerate}
+\end{proof}
+
+\end{document}
