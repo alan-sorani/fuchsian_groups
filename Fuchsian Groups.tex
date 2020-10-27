@@ -112,7 +112,7 @@ In particular, Euclidean angles are equal to hyperbolic angles.
 \item Let $\gamma \colon \brs{0,1} \to \mbb{U}$ be a piecewise continuously differentiable path. The \emph{hyperbolic length} of $\gamma$ is given by
 \[h_u\prs{\gamma} \ceq \int_0^1 \frac{2 \abs{\frac{\diff \gamma}{\diff t}}}{1 - \abs{\gamma\prs{t}}^2} \diff t \text{.}\]
 
-\item The \emph{hyperbolic distance} $\rho_u\prs{z,w}$ between $z,w \in \mbb{U}$ is defined to be $\inf_\gamma h\prs{\gamma}$ where the infimum is taken over all piecewise differentiable paths from $z$ to $w$.
+\item The \emph{hyperbolic distance} $\rho_u\prs{z,w}$ between $z,w \in \mbb{U}$ is defined to be $\inf_\gamma h\prs{\gamma}$ where the infimum is taken over all piecewise continuously differentiable paths from $z$ to $w$.
 \end{enumerate}
 \end{definition}
 
@@ -130,7 +130,7 @@ Let $\pi$ be the Möbius transformation defined by
 Then
 \begin{enumerate}
 \item $\pi$ is a bijection from $\mbb{H}$ to $\mbb{U}$.
-\item For every piecewise differentiable path $\gamma \colon \brs{0,1} \to \mbb{H}$,it holds that $h_u\prs{\pi\prs{\gamma}} = h\prs{\gamma}$.
+\item For every piecewise continuously differentiable path $\gamma \colon \brs{0,1} \to \mbb{H}$,it holds that $h_u\prs{\pi\prs{\gamma}} = h\prs{\gamma}$.
 In particular, $\pi$ is an isometry.
 \end{enumerate}
 \end{lemma}
@@ -145,7 +145,7 @@ In particular, $\pi$ is an isometry.
 \end{align*}
 Since Möbius transformations send generalised circles to generalised circles we get that $\pi$ sends $\mbb{R}$ to the unit circle.
 Since $\pi\prs{i} = 0$ and $\pi$ is a homeomorphism of the Riemann sphere, we get the result.
-%TODO does it have to be continuously?
+
 \item Let $\gamma \colon \brs{0,1} \to \mbb{H}$ be a piecewise continuously differentiable path. Denote $\psi = \pi^{-1}$ and $\delta = \pi\prs{\gamma}$.
 Then
 \[\psi\prs{z} = \frac{iz - 1}{-z + i} = \frac{\prs{iz - 1}{- \bar{z} - i}}{\prs{-z + i}{-\bar{z} - i}} = \frac{\prs{z + \bar{z}} + i \prs{1 - \abs{z}^2}}{\abs{-z + i}^2} \text{.}\]
@@ -166,5 +166,109 @@ h\prs{\gamma} &= \int_0^1 \frac{\abs{\frac{\diff \gamma}{\diff t}}}{\Im\prs{\gam
 
 \end{enumerate}
 \end{proof}
+
+\subsection{Isometries of the Hyperbolic Plane}
+
+\begin{lemma}
+For every $g \in \bmat{a & b \\ c & d} \in \mrm{PSL}_2\prs{\mbb{R}}$ it holds that
+\[T_g\prs{\mbb{H}} \subseteq \mbb{H} \text{.}\]
+\end{lemma}
+
+\begin{proof}
+It's enough to show the inclusion $T_g\prs{\mbb{H}} \subseteq \mbb{H}$ since then
+\[T_{g^{-1}}\prs{\mbb{H}} = \prs{T_g}^{-1} \prs{\mbb{H}} \subseteq \mbb{H}\]
+which implies $T_g\prs{\mbb{H}} \supseteq \mbb{H}$ by applying $T_g$.
+
+Now, we have
+\begin{align*}
+T_g\prs{z} &= \frac{az + b}{cz + d}
+\\&=
+\frac{\prs{az + b}\prs{c \bar{z} + d}}{\abs{cz + d}^2}
+\\&=
+\frac{ac \abs{z}^2 + adz + bc \bar{z} + bg}{\abs{cz + d}^2} \text{.}
+\end{align*}
+Thus,
+\begin{align*}
+\Im\prs{T_g\prs{z}} &= \frac{T_g\prs{z} - \overline{T_g\prs{z}}}{2 i}
+\\&=
+\frac{\prs{ad - bc} z - \prs{ad - bc} \bar{z}}{2i \abs{cz + d}^2}
+\\&\underset{ad - bc = 1}{=}
+\frac{\Im\prs{z}}{\abs{cz + d}^2} \text{.}
+\end{align*}
+
+\end{proof}
+
+This lemma allows us to identify $\mrm{PSL}_2\prs{\mbb{R}}$ as a subgroup of $\mrm{Sym}\prs{\mbb{H}}$. The next lemma shows that even more is true.
+
+\begin{lemma}
+$\mrm{PSL}_2\prs{\mbb{R}} \subseteq \mrm{Isom}\prs{\mbb{H}}$.
+\end{lemma}
+
+\begin{proof}
+It's enough to show that for every $g \in \mrm{PSL}_2\prs{\mbb{R}}$ and every piecewise continuously differentiable path $\gamma$ it holds that $h\prs{\gamma} = h\prs{T_g\prs{\gamma}}$.
+Denote $T = T_g$ and $\delta = T\prs{\gamma}$. Then
+\begin{align*}
+h\prs{\delta} &= \int_0^1 \frac{\abs{\frac{\diff \delta}{\diff t}}}{\Im\prs{\delta\prs{t}}} \diff t
+\\&=
+\int_0^1 \frac{\abs{\frac{\diff T}{\diff z} \prs{\gamma\prs{t}} \frac{\diff \gamma}{\diff t}}}{\Im\prs{\delta\prs{t}}} \diff t
+\\&\underset{\star}{=}
+\int_0^1 \frac{\abs{\frac{\diff \gamma}{\diff t}}}{\gamma\prs{t}} \diff t
+\\&=
+h\prs{\gamma}
+\end{align*}
+where $\star$ follows from
+\begin{align*}
+\Im\prs{T_g\prs{z}} &= \frac{\Im \prs{z}}{\abs{cz + d}^2} \oplus \frac{\diff T}{\diff z} \\&=
+\frac{a\prs{cz + d} - c\prs{az + b}}{\prs{cz + d}^2}
+\\&= \frac{1}{\prs{cz + d}^2} \text{.}
+\end{align*}
+\end{proof}
+
+\begin{corollary}
+$\mrm{Isom}\prs{\mbb{H}}$ acts transitively on $\mbb{H}$.
+\end{corollary}
+
+\begin{proof}
+It's enough to show that for every $z \in \mbb{H}$ there's $g \in \mrm{PSL}_2\prs{\mbb{R}}$ such that $T_g\prs{z} = i$.
+
+If $z = x + yi$, take $g = \pmat{\frac{1}{\sqrt{y}} & - \frac{x}{\sqrt{y}} \\ 0 & \frac{1}{\sqrt{y}}}$, then
+\[T_g\prs{z} = \frac{1}{y} \prs{x + yi} - \frac{x}{y} = i \text{.}\]
+\end{proof}
+
+\begin{lemma}
+Let $\pi \colon \mbb{H} \to \mbb{U}$ be the isometry $z \mapsto \frac{iz + 1}{z + i}$ which we defined previously.
+Then
+\[\set{\pi T_g \pi^{-1}}{g \in \mrm{PSL}_2\prs{\mbb{R}}} = \set{\pmat{r & s \\ \bar{r} & \bar{s}}}{\substack{r,s \in \mbb{C} \\ \abs{r}^2 - \abs{s}^2 = 1}} \text{.}\]
+In particular, by taking $r = e^{i \theta}$ and $s = 0$ we see that the action of $\mrm{PSL}_2\prs{\mbb{R}}$ on $\mbb{U}$ contains all the rotations around $0$.
+\end{lemma}
+
+\begin{proof}
+It holds that
+\[\pmat{i & 1 \\ 1 & i} \pmat{a & b \\ c & d} \pmat{i & -1 \\ -1 & i} = \frac{1}{2} \pmat{\prs{a+d} + i\prs{b-c} & b + c + i\prs{a-d} \\ \prs{b+c} - i \prs{a+d} & \prs{a+d} - i\prs{b-c}} \text{.}\]
+Now, $\prs{a+d, a-d, b+c, b-c}$ can be any $4$-tuple. Specifically, for every $r,s \in \mbb{C}$ we have $a,b,c,d \in \mbb{R}$ such that $\pi T_g \pi^{-1} = \pmat{r & s \\ \bar{s} & \bar{r}}$, and by the equality from the determinants we get that $\bmat{a & b \\ c & d } \in \mrm{PSL}_2\prs{\mbb{R}}$.
+\end{proof}
+
+\begin{corollary}
+Let $z_1, z_2, w_1, w_2 \in \mbb{H}$ be such that $\rho\prs{z_1, w_1} = \rho\prs{z_2, w_2}$, then there exists $g \in \mrm{PSL}_2\prs{\mbb{R}}$ such that $T_g\prs{z_1} = z_2$ and $T_g\prs{w_1} = w_2$.
+\end{corollary}
+
+\begin{proof}
+Since $\mrm{PSL}_2\prs{\mbb{R}}$ acts transitively on $\mbb{H}$ we can assume that $z_1 = z_2$ and show that $\mrm{Stab}\prs{z_1}$ acts transitively on $\set{w \in \mbb{H}}{\rho\prs{z_1, w} = \rho\prs{z_1, w_1}}$.
+We already showed this in the disc model, in the case $z_1 = i$.
+\end{proof}
+
+\begin{definition}
+Let $\prs{X,d}$ be a metric space.
+\begin{enumerate}
+\item Let $x,y \in X$. A path $\gamma \colon \brs{a,b} \to X$ which joins $x$ and $y$ is called a \emph{geodesic segment} if for every $a \leq t_1 \leq t_2 \leq b$ it holds that $\abs{t_2 - t_1} = d\prs{\gamma\prs{t_1}, \gamma\prs{t_2}}$.
+
+\item A path $\gamma \colon \mbb{R} \to X$ is called a \emph{geodesic line} if for every $a < b$ it holds that $\left. \gamma \right|_{\brs{a,b}}$ is a geodesic segment.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Let $\gamma$ be a geodesic segment or line.
+Then $\gamma$ is determined by the image of $\gamma$ up to a composition with an isometry of $\mrm{R}$. Thus, we can identify geodesic segments and lines with their image up to orientation.
+\end{remark}
 
 \end{document}
