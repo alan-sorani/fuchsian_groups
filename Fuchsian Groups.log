@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.12.0 (MiKTeX 20.7) (format=lualatex 2020.9.3)  1 NOV 2020 13:12
+This is LuaHBTeX, Version 1.12.0 (MiKTeX 20.7) (format=lualatex 2020.9.3)  3 NOV 2020 15:20
  restricted system commands enabled.
 **"Fuchsian Groups.tex"
 ("./Fuchsian Groups.tex"
@@ -1013,21 +1013,45 @@ Overfull \hbox (3.09293pt too wide) in paragraph at lines 115--116
  []
 
 [7] [8] [9] [10] [11]
+Overfull \hbox (1.83356pt too wide) in paragraph at lines 368--369
+[]\TU/lmr/m/it/10 The hy-per-bolic topol-ogy is equal to the Eu-clidean topol-
+ []
+
+[12] [13] [14] [15] [16] [17]
+Overfull \hbox (150.96422pt too wide) detected at line 639
+[]
+ []
+
+
+Overfull \hbox (14.25966pt too wide) detected at line 649
+[]
+ []
+
+[18]
+Chapter 2.
+
+Overfull \hbox (16.23894pt too wide) in paragraph at lines 689--690
+[]\TU/lmr/m/n/10 A group ac-tion is called \TU/lmr/m/it/10 sharply
+ []
+
+[19
+
+]
 \tf@thm=\write5
 
 \openout5 = Fuchsian Groups.thm
- [12] ("./Fuchsian Groups.aux"))
+ [20] ("./Fuchsian Groups.aux"))
 
 Here is how much of LuaTeX's memory you used:
- 20528 strings out of 481302
+ 20545 strings out of 481302
  100000,794899 words of node,token memory allocated
- 605 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 22 attribute, 61 glue_spec
-, 22 attribute_list, 2 write nodes
-   avail lists: 2:905,3:148,4:41,5:236,6:16,7:2726,8:75,9:671,10:5,11:103
- 36872 multiletter control sequences out of 65536+200000
- 85 fonts using 8137779 bytes
- 68i,12n,86p,826b,336s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 689 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 43 attribute, 61 glue_spec
+, 43 attribute_list, 2 write nodes
+   avail lists: 2:863,3:148,4:41,5:300,6:17,7:2726,8:77,9:671,10:6,11:103
+ 36889 multiletter control sequences out of 65536+200000
+ 94 fonts using 8696947 bytes
+ 68i,18n,86p,826b,343s stack positions out of 5000i,500n,10000p,200000b,50000s
 <//?/c:/users/eladt/appdata/local/programs/miktex/fonts/opentype/public/lm/lmrom
 an10-bolditalic.otf><//?/c:/users/eladt/appdata/local/programs/miktex/fonts/open
 type/public/lm/lmroman10-italic.otf><//?/c:/users/eladt/appdata/local/programs/m
@@ -1039,23 +1063,27 @@ d.otf><//?/c:/users/eladt/appdata/local/programs/miktex/fonts/opentype/public/lm
 pentype/public/lm/lmroman9-regular.otf><//?/c:/users/eladt/appdata/local/program
 s/miktex/fonts/opentype/public/lm/lmroman12-regular.otf><//?/c:/users/eladt/appd
 ata/local/programs/miktex/fonts/opentype/public/lm/lmroman17-regular.otf><C:/Use
-rs/EladT/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb
+rs/EladT/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ><C:/Users/EladT/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-mi10.pfb><C:/Users/EladT/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmmi7.pfb><C:/Users/EladT/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmr10.pfb><C:/Users/EladT/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmr5.pfb><C:/Users/EladT/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/EladT/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/EladT/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/EladT/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/EladT/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/
-EladT/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.p
-fb><C:/Users/EladT/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/sym
-bols/msbm7.pfb>
-Output written on Fuchsian Groups.pdf (12 pages, 196925 bytes).
+bx7.pfb><C:/Users/EladT/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmex10.pfb><C:/Users/EladT/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmmi10.pfb><C:/Users/EladT/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmmi5.pfb><C:/Users/EladT/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/EladT/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/EladT/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/EladT/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/EladT/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/EladT
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/User
+s/EladT/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
+C:/Users/EladT/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfon
+t/line10.pfb><C:/Users/EladT/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/symbols/msam10.pfb><C:/Users/EladT/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/symbols/msbm10.pfb><C:/Users/EladT/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on Fuchsian Groups.pdf (20 pages, 276021 bytes).
 
-PDF statistics: 155 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 195 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 

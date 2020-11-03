@@ -328,6 +328,7 @@ Let $z,w \in \mbb{H}$. Then
 \begin{align*}
 \sinh\prs{\frac{1}{2} \rho\prs{z,w}} = \frac{\abs{z-w}}{2 \prs {\Im\prs{z} \Im\prs{w}}^{\frac{1}{2}}} \text{.}
 \end{align*}
+\end{theorem}
 
 \begin{proof}
 Since $\mrm{PSL}_2\prs{\mbb{R}} \subseteq \mrm{Isom}\prs{\mbb{H}}$, the left side of the equation is invariant under the action of $\mrm{PSL}_2\prs{\mbb{R}}$. We first show that the right side is also invariant.
@@ -360,8 +361,367 @@ Indeed,
 \\&=
 \frac{\abs{i - ir}}{2 \prs{\Im\prs{i} \Im\prs{ir}}^{\frac{1}{2}}} \text{.}
 \end{align*}
-
 \end{proof}
+
+\begin{corollary}
+\begin{enumerate}
+\item The hyperbolic topology is equal to the Euclidean topology.
+\item $\mbb{H}$ is a complete metric space.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\begin{enumerate}
+\item Let $z \in \mbb{H}$. If $\abs{\Im\prs{z} - \Im\prs{w}} < \frac{1}{2} \Im\prs{z}$ then
+\[\frac{\abs{z-w}}{\sqrt{6} \Im\prs{z}} \leq \sinh \prs{\frac{1}{2} \rho\prs{z,w}} \leq \frac{\abs{z-w}}{\sqrt{2} \Im\prs{z}} \text{.}\]
+\item We show that $\mbb{U}$ is a complete metric space, which implies the result since there's an isometry between $\mbb{U}$ and $\mbb{H}$.
+Let $z,w \in \mbb{U}$, we have
+\begin{align*}\label{equation:H_is_complete}
+\sinh^2 \prs{\frac{1}{2} \rho\prs{z,w}} = \frac{\abs{z-w}^2}{\prs{1-\abs{z}^2}\prs{z-\abs{w}^2}} \text{.}
+\end{align*}
+Let $\prs{z_n}_{n \in \mbb{N}}$ be a hyperbolic Cauchy sequence. Then it's bounded in the hyperbolic metric, and \eqref{equation:H_is_complete} implies that it does not have a limit point on the unit circle and so is contained in a compact subset of the unit circle.
+
+The result follows since \eqref{equation:H_is_complete} implies that on such a subset the hyperbolic and Euclidean metric are Lipschitz equivalent. 
+
+\end{enumerate}
+\end{proof}
+
+\begin{exercise}
+Prove that if $z,w \in \mbb{U}$ then
+\[\sinh^2\prs{\frac{1}{2}\rho\prs{z,w}} = \frac{\abs{z-w}^2}{\prs{1 - \abs{z}^2} \prs{1 - \abs{w}^2}} \text{.}\]
+\end{exercise}
+
+\begin{theorem}
+Let $\tau \colon \mbb{H} \to \mbb{H}$ be $\tau\prs{z} = -\bar{z}$. Then $\mrm{Isom}\prs{\mbb{H}} = \mrm{PSL}_2\prs{\mbb{R}} \rtimes \trs{\tau}$.
+In particular, $\mrm{PSL}_2\prs{\mbb{R}}$ is a normal index two subgroup of $\mrm{Isom}\prs{\mbb{H}}$.
 \end{theorem}
+
+\begin{proof}
+Clearly, $\tau$ is of order two. Since every index two subgroup is normal, it is enough to prove that for every hyperbolic isometry $s \in \mrm{Isom}\prs{\mbb{H}}$ there exists $g \in \mrm{PSL}_2\prs{\mbb{R}}$ such that $sT_g$ is either the identity or $\tau$.
+
+There's $g \in \mrm{PSL}_2\prs{\mbb{R}}$ such that $T_g\prs{i} = s^{-1}\prs{i}$ and $T_g\prs{2i} = s^{-2}\prs{2i}$ (since $\mrm{PSL}_2\prs{\mbb{R}}$ is $2$-transitive). Then
+$s T_g\prs{i} = i$ and $sT_g\prs{2i} = 2i$. Since isometries send geodesics to geodesics, for every $t>0$ it holds that $s T_g\prs{t i} = ti$.
+
+Denote
+\begin{align*}
+U_+ &\ceq \set{z \in \mbb{H}}{\Re\prs{z} > 0} \\
+U_{-} &\ceq \set{z \in \mbb{H}}{\Re\prs{z} < 0}\text{.}
+\end{align*}
+Since $s T_g$ is continuous it follows that $s T_g \prs{U_+} \subseteq U_+$ or $s T_g\prs{U_+} \subseteq U_-$.
+In the first case denote $R \ceq s T_g$, and in the second case denote $R \ceq \tau s T_g$. In either case, $R\prs{U_+} \subseteq U_+$.
+
+In order to finish the proof, we want to show that $R = \id$. For every $t > 0 $ we have
+\begin{align*}
+\frac{\abs{it - w}}{2 \prs{t \Im\prs{w}}^{\frac{1}{2}}} &= \sinh\prs{\frac{1}{2} \rho\prs{it, w}}
+\\&=
+\sinh\prs{\frac{1}{2} \rho\prs{R\prs{it}, R\prs{w}}}
+\\&=
+\sinh\prs{\frac{1}{2} \rho\prs{it, R\prs{w}}}
+\\&=
+\frac{\abs{it - R\prs{w}}}{2 \prs{t \Im\prs{R\prs{w}}}^{\frac{1}{2}}} \text{.}
+\end{align*}
+So,
+\[\abs{it - w}^2 \Im\prs{R\prs{w}} = \abs{it - R\prs{w}}^2 \Im\prs{w} \text{.}\]
+This holds for every $t$, which implies together with
+\[\Im\prs{R\prs{w}} = \lim_{t \to \infty} \frac{\abs{it - w}^2 \Im\prs{R\prs{w}}}{t^2}\]
+that
+\[\Im\prs{R\prs{w}} = \lim_{t \to \infty} \frac{\abs{it - R\prs{w}}^2 \cdot \Im\prs{w}}{t^2} = \Im\prs{w} \text{.}\]
+Now, for every $t > 0$ we get
+\[\abs{it - w} = \abs{it - R\prs{w}}\]
+which implies
+$w = R\prs{w}$
+or
+$w = - \overline{R\prs{w}}$.
+The latter case is impossible since $R\prs{U_+} \subseteq  U_+$.
+\end{proof}
+
+\begin{corollary}
+Every element of $\mrm{Isom}\prs{\mbb{H}}$ is either conformal or anti-conformal.
+
+An element of $\mrm{Isom}\prs{\mbb{H}}$ is conformal if and only if it belongs to $\mrm{PSL}_2\prs{\mbb{R}}$.
+\end{corollary}
+
+\begin{definition}
+Let $\hat{\mbb{C}}$ be the Riemann sphere. The cross ratio of distinct points $z_1, z_2, z_3, z_4 \in \hat{\mbb{C}}$ is
+\[\prs{z_1, z_2 : z_3, z_3} \ceq \frac{\prs{z_1 - z_2}{z_3 - z_4}}{\prs{z_2 - z_3}\prs{z_4 - z_1}} \text{.}\]
+\end{definition}
+
+\begin{lemma}
+Möbius transformations preserve the cross ratio.
+\end{lemma}
+
+\begin{proof}
+We prove this when $z_1, z_2, z_3, z_4 \in \mbb{C} \setminus \set{0}$. The other cases are left as exercise.
+
+It is clear that maps of the form $z \mapsto az + b$, with $a \neq 0$, preserve the cross-ratio. Thus it's enough to prove that the map $z \mapsto -\frac{1}{z}$ preserves the cross-ratio.
+Indeed,
+\begin{align*}
+\prs{z_1, z_2 ; z_3, z_4} &=
+\frac{\prs{z_1 - z_2}{z_3 - z_4}}{\prs{z_2 - z_3}\prs{z_4 - z_1}}
+\\&=
+\frac{\prs{\frac{z_1 - z_2}{z_1 z_2}}{\frac{z_3 - z_4}{z_3 z_4}}}{\prs{\frac{z_2 - z_3}{z_2 z_3}}\prs{\frac{z_4 - z_1}{z_1 z_4}}}
+\\&=
+\frac{\prs{\frac{1}{z_1} - \frac{1}{z_2}}\prs{\frac{1}{z_3} - \frac{1}{z_4}}}{\prs{\frac{1}{z_2} - \frac{1}{z_3}}\prs{\frac{1}{z_4} - \frac{1}{z_1}}}
+\\&=
+\prs{\frac{1}{z_1}, \frac{1}{z_2} ; \frac{1}{z_3}, \frac{1}{z_4}} \text{.}
+\end{align*}
+\end{proof}
+
+\begin{theorem}
+Let $z,w \in \mbb{H}$ and let the geodesic joining $z,w$ have have end points $z^*$ and $w^*$ in $\mbb{R} \cup \set{\infty}$, chosen in a way that $z$ lies between $z^*$ and $w$. Then
+\[\rho\prs{z,w} = \ln\prs{\prs{w, z^*; z, w^*}} \text{.}\]
+\end{theorem}
+
+\begin{proof}
+Since both sides are invariant to the action of $\mrm{PSL}_2\prs{\mbb{R}}$ we can assume that $z = i$ and $w = ri$ with $r > 1$. Then $z^* = 0$ and $w^* = \infty$, so $r = \prs{w, z^*, z, w^*}$ and $\rho\prs{i,ir} = \ln\prs{r}$.
+\end{proof}
+
+\section{The Gauss-Bonnet Formula}
+
+\begin{definition}[Hyperbolic Measure]
+We define a measure $\mu$ on subsets of $\mbb{H}$ by
+\[\mu\prs{A} = \int_A \frac{\diff x \diff y}{y^2}\]
+for which this exists.
+\end{definition}
+
+\begin{theorem}
+The hyperbolic area is invariant under $\mrm{PSL}_2\prs{\mbb{R}}$.
+\end{theorem}
+
+\begin{proof}
+Let $f \colon \mbb{C} \to \mbb{C}$ given by
+\[f\prs{x+iy} = u\prs{x,y} + i v\prs{x,y}\]
+where $u,v \colon \mbb{C} \to \mbb{R}$.
+
+By Cauchy-Riemann 
+%TODO fill this in!
+\begin{align*}
+\frac{\del\prs{u,v}}{\del\prs{x,y}} &= \frac{\del u}{\del x} \frac{\del v}{\del y} - \frac{\del u}{\del y} \frac{\del v}{\del x}
+\\&=
+\prs{\frac{\del u}{\del x}}^2 + \prs{\frac{\del v}{\del y}}^2
+\\&= \ldots
+\end{align*}
+
+Let $g = \bmat{a & b \\ c & d} \in \mrm{PSL}_2\prs{\mbb{R}}$. Recall that
+\begin{align*}
+\abs{\frac{\diff T_g}{\diff z}} &= \frac{1}{\abs{cz + d}^2} \\
+\Im\prs{T_g\prs{z}} &= \frac{\Im \prs{z}}{\abs{cz + d}^2} \text{.}
+\end{align*}
+Then
+\[T_g\prs{x + iy} = u\prs{x,y} + i v\prs{x,y}\]
+so
+\begin{align*}
+\mu\prs{T_g\prs{A}} &= \int_{T_g\prs{A}} \frac{\diff u \diff v}{v^2}
+\\&=
+\int_A \frac{\del \prs{u,v}}{\del \prs{x,y}} \frac{\diff x \diff y}{v^2}
+\\&=
+\int_A \frac{1}{\abs{cz + d}^4 \cdot} \frac{\abs{cz + d}^4}{y \diff x \diff y}
+\\&=
+\mu\prs{A} \text{.}
+\end{align*}
+\end{proof}
+
+\begin{definition}[$\tilde{\mbb{H}}$]
+\begin{enumerate}
+\item Define $\tilde{\mbb{H}} = \mbb{H} \cup \mbb{R} \cup \set{\infty}$.
+\item A hyperbolic $n$-sided polygon is a closed subset of $\tilde{\mbb{H}}$ bounded by the closure of $n$ hyperbolic geodesic segments or rays.
+\item A side of a polygon is the closure of a geodesic segment or ray which bounds to polygon.
+\item A point $z \in \tilde{\mbb{H}}$ is called a vertex if it is the intersection of two distinct sides.
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+There rare four types of hyperbolic triangles, which depend on the number of vertices on the boundary.
+%TODO add image
+\end{example}
+
+\begin{theorem}[Gauss-Bonnet]
+Let $\Delta$ be a hyperbolic triangle with angles $\alpha,\beta,\gamma$. Then
+\[\mu\prs{\Gamma} = \pi - \alpha - \beta - \gamma \text{.}\]
+\end{theorem}
+
+\begin{proof}
+First assume that $\Delta$ has a vertex on the boundary. Since $\mrm{PSL}_2\prs{\mbb{R}}$ preserves area, we may assume that this vertex is $\infty$.
+Thus, two sides are given by equations $x = a$ and $x = b$ (and assume $a < b$).
+By applying a transformation of the form
+\[z \mapsto \lambda z + k\]
+where $\lambda > 0$ and $k \in \mbb{R}$, we can assume that the third side of $\Gamma$ is an arc on the geodesic $\abs{z}^2 = 1$.
+
+Pass segments from $0$ to the vertices of the triangle and call the angles between these and the real axis $\alpha$ and $\beta$.
+Then
+\begin{align*}
+\mu\prs{\Delta} &=
+\int_\Delta \frac{\diff x \diff y}{y^2}
+\\&=
+\int_a^b \diff x \int_{\sqrt{1 - x^2}}^\infty \frac{\diff y}{y^2}
+\\&=
+\int_a^b \frac{\diff x}{\sqrt{1 - x^2}}
+\\&\underset{x = \cos\theta}{=}
+\int_{\pi - \alpha}^\beta - \frac{\sin \theta}{\sin \theta} \diff \theta = \pi - \alpha - \beta - \cancelto{0}{\gamma} \text{.}
+\end{align*}
+
+In the other case, consider a triangle $\Delta = \mrm{ABC}$ with respective angles $\alpha,\beta,\gamma$. Continue the geodesic segment $\mrm{AB}$ to get an intersection $\mrm{D}$ with the boundary.
+Let $\Delta' = \mrm{CBD}$ and $\Delta'' = \mrm{ABD}$.
+
+%TODO add figure
+
+Now, $\Delta'$ and $\Delta''$ have a vertex at infinity, so
+\begin{align*}
+\mu\prs{\Delta} &= \mu\prs{\Delta''} - \mu\prs{\Delta'}
+\\&=
+\pi - \prs{\alpha + \gamma + \theta} - \prs{\pi - \theta - \prs{\pi - \beta}}
+\\&= \pi - \alpha - \beta - \gamma \text{.}
+\end{align*}
+\end{proof}
+
+\section{Hyperbolic Geometry}
+
+\begin{theorem}
+Let $\Delta$ be a hyperbolic triangle with sides of hyperbolic lengths $a,b,c$ and opposite angles $\alpha,\beta,\gamma$.
+Assume that $\alpha,\beta,\gamma > 0$ (so there is no vertex at the boundary).
+
+The following holds.
+
+\begin{description}
+\item[The Sine Rule:]
+\[\frac{\sinh\prs{a}}{\sin \alpha} = \frac{\sinh\prs{b}}{\sin \beta} = \frac{\sinh\prs{c}}{\sin \gamma}\]
+\item[The First Cosine Rule:]
+\[\cosh\prs{c} = \cosh\prs{a} \cosh\prs{b} - \cos\gamma \sinh\prs{a} \sinh\prs{b}\]
+\item[The Second Cosine Rule:]
+\[\cosh\prs{c} = \frac{\cos\alpha\cos\beta + \cos\gamma}{\sin \alpha \sin \beta} \text{.}\]
+\end{description}
+\end{theorem}
+
+\begin{proof}
+\begin{description}
+\item[The First Cosine Rule:]
+We use the disc model to prove the rule. Let $\Delta$ be a triangle in $\mbb{U}$ with sides $a,b,c$ and let $v_a, v_b, v_c$ be the vertices opposite to the respective sides.
+
+We can assume $v_c = 0$ and $v_a = r \in \prs{0,1}$, and denote $v_b = z \in \mbb{U}$.
+%TODO add fig 1.4
+We have
+\[\sinh^2 \prs{\frac{1}{2} \rho_u\prs{z,w}} = \frac{\abs{z-w}}{\prs{1-\abs{z}^2} \prs{1-\abs{w}^2}} \text{,}\]
+but
+\[\sinh^2\prs{\alpha} = \frac{1}{2} \cosh\prs{2 \alpha} - \frac{1}{2} \alpha\]
+because
+\begin{align*}
+\prs{\frac{e^{\alpha} - e^{-\alpha}}{2}}^\alpha
+&= \frac{e^{2 \alpha} - 2 + e^{-2 \alpha}}{4}
+\\&= \frac{1}{2} \cdot \frac{e^{2 \alpha} + e^{-2 \alpha}}{2} - \frac{1}{2} \text{.}
+\end{align*}
+Hence
+\[\cosh\prs{\rho_u\prs{z,w}} = \frac{2 \abs{z-w}}{\prs{1-\abs{z}^2} \prs{1-\abs{w}^2}} + 1 \text{.}\]
+Then
+\begin{align*}
+\cosh\prs{a} &= \frac{1 + \abs{z}^2}{1 - \abs{z}^2} \\
+\cosh\prs{b} &= \frac{1+r^2}{1-r^2} \\
+\cosh\prs{c} &= \frac{2 \abs{z-r}^2}{\prs{1-\abs{z}^2}\prs{1-r^2}} + 1 \text{.}
+\end{align*}
+
+Using
+\begin{align*}
+\sinh\prs{a} &= \sqrt{\cosh^2\prs{\abs{z}} - 1} = \frac{2 \abs{z}}{1 - \abs{z}^2} \\
+\sinh\prs{b} &= \sqrt{\cosh^2\prs{r} - 1} = \frac{2r}{1-r^2}
+\end{align*}
+and the Euclidean cosine rule
+\[\cos \gamma = \frac{r^2 + \abs{z}^2 - \abs{2-r}^2}{2r \abs{z}}\]
+we get
+\begin{align*}
+\cosh\prs{a} \cosh\prs{b} - \sinh\prs{a} \sinh\prs{b} \cos\prs{\gamma}
+&=
+\prs{\frac{1 + \abs{z}^2}{1-\abs{z}^2}} \prs{\frac{1 + r^2}{1-r^2}} - \frac{4r \abs{z}}{\prs{1-r^2}\prs{1-\abs{z}^2}} \cdot \frac{r^2 + \abs{z}^2 - \abs{z-r}^2}{2 r \abs{z}}
+\\&=
+\frac{\prs{1+r^2}\prs{1+\abs{z}^2} - 2r^2 - 2\abs{z}^2 + 2\abs{z-r}^2}{\prs{1-r^2}\prs{1-\abs{z}^2}}
+\\&=
+1 + \frac{2 \abs{z-r}^2}{\prs{1-r}^2 \prs{1-\abs{z}^2}}
+\\&=
+\cosh\prs{c} \text{.}
+\end{align*}
+
+\item[The Sine Rule:]
+It holds by the first cosine rule that that
+\begin{align*}
+\prs{\frac{\sinh c}{\sin \gamma}}^2 &=
+\frac{\sinh^2 c}{1 - \prs{\frac{\cosh a \cosh b - \cosh c}{\sinh \prs{a} \sinh\prs{b}}}^2}
+\\&=
+\prs{\cosh^2\prs{a} - 1}\prs{\cosh^2\prs{b} - 1} - \prs{\cosh\prs{a} \cosh\prs{b} - \cosh\prs{c}}^2
+\\&= 1 + 2 \cosh\prs{a} \cosh\prs{b} \cosh\prs{c} - \cosh^2\prs{a} - \cosh^2\prs{b} - \cosh^2\prs{c}
+\end{align*}
+where the last term is symmetric in $a,b,c$.
+\end{description}
+\end{proof}
+
+\chapter{Fuchsian Groups}
+
+\section{Fuchsian Groups}
+
+\subsection{Definitions}
+
+\begin{definition}[$\mrm{SL}_2\prs{\mbb{R}}$]
+Let $\mrm{SL}_2\prs{\mbb{R}}$ be the group of $2 \times 2$ real matrices with determinant $1$, with the topology from $\mbb{R}^4$ via $\pmat{a & b \\ c & d} \mapsto \pmat{a \\ b \\ c \\ d}$.
+\end{definition}
+
+Throughout the course, we endow $\mrm{PSL}_2\prs{\mbb{R}}$ with the quotient topology from $\mrm{GL}_2\prs{\mbb{R}}$.
+
+We endow $\mrm{Isom}\prs{\mbb{H}}$ with the following topology.
+Let $\tau \in \mrm{Isom}\prs{\mbb{H}} \setminus \mrm{PSL}_2\prs{\mbb{R}}$ and.
+$U \subseteq \mrm{Isom}\prs{\mbb{H}}$ is open if and only if $U \cap \mrm{PSL}_2\prs{\mbb{R}}$ and $\tau U \cap \mrm{PSL}_2\prs{\mbb{R}}$ are open.
+
+\begin{exercise}
+\begin{enumerate}
+\item
+$\mrm{SL}_2\prs{\mbb{R}}, \mrm{PSL}_2\prs{\mbb{R}}, \mrm{Isom}\prs{\mbb{H}}$ are topological groups.
+\item The actions of $\mrm{PSL}_2\prs{\mbb{R}}$ on $\mbb{H}$ and $\mbb{R} \cup \set{\infty}$ are continuous.
+\end{enumerate}
+\end{exercise}
+
+\begin{definition}
+Let
+\[S\mbb{H} \ceq \set{\prs{z,\alpha}}{z \in \mbb{H}, \alpha \in \mbb{C}, \abs{\alpha} = \Im\prs{z}}\]
+be the unit tangent bundle of $\mbb{H}$, which is homeomorphic to $\mbb{H} \times S^1$.
+\end{definition}
+
+\begin{definition}
+For every $g \in \mrm{PSL}_2\prs{\mbb{R}}$ and $\prs{W,\alpha} \in S \mbb{H}$, denote $T_g \cdot \prs{w, \alpha} = \prs{T_g\prs{w}, D\prs{T_g}\prs{w}}$.
+\end{definition}
+
+\begin{definition}[Sharply Transitive Action]
+A group action is called \emph{sharply transitive} if its transitive and the stabiliser of every element is trivial.
+\end{definition}
+
+\begin{lemma}
+\begin{enumerate}
+\item The map $\mrm{PSL}_2\prs{\mbb{R}} \times S\mbb{H} \to S\mbb{H}$ is a group action.
+\item $\mrm{PSL}_2\prs{\mbb{R}}$ acts sharply transitive on $S\mbb{H}$.
+\item The map $g \mapsto T_g\prs{\prs{i,i}}$ is a homeomorphism of $\mrm{PSL}_2\prs{\mbb{R}}$ and $S\mbb{H}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\begin{enumerate}
+\item Let $\prs{w,\alpha} \in S\mbb{H}$ and $g,h \in \mrm{PSL}_2\prs{\mbb{R}}$. We first show that $g \cdot \prs{w,\alpha} \in S\mbb{H}$.
+It holds that
+\begin{align*}
+\Im\prs{T_g\prs{w}} &=
+\abs{\frac{\diff T_g}{\diff z}\prs{w}} \cdot \Im\prs{w} \text{,}
+\end{align*}
+so
+\begin{align*}
+\abs{\left. D T_g \right|_{w \prs{\alpha}}} = \abs{\Im\prs{T_g\prs{w}}} \text{.}
+\end{align*}
+
+We now have to check that this is an action. It holds that
+\begin{align*}
+\prs{gh} \cdot \prs{w,\alpha} &= \prs{T_{gh}\prs{\alpha}, D T_{gh} \prs{w} \alpha}
+\\&= \prs{T_g \prs{T_h\prs{w}}, D T_g \prs{T_h\prs{w}} \alpha}
+\\&= g \cdot \prs{h \cdot \prs{w,\alpha}} \text{.}
+\end{align*}
+
+\item Let $\prs{w, \alpha} \in S \mbb{H}$. It is enough to show that there exists a unique $g \in \mrm{PSL}_2\prs{\mbb{R}}$ such that $g \cdot \prs{i,i} = \prs{w, \alpha}$. Recall that geodesic lines in $\mbb{H}$ are oriented generalised semicircles orthogonal to the real axis. Hence there exists a unique geodesic $\ell \colon \mbb{R} \to \mbb{H}$ which passes through $w$ and whose derivative at $w$ is $\alpha$.
+Let $\gamma \colon \mbb{R} \to \mbb{H}$ be the geodesic given by $\gamma\prs{t} = ie^{t}$. Since $T_g$ sends geodesics to geodesics, it must send $i$ to $w$, send $\gamma$ to $\ell$, and respect the orientation of $\gamma$ and $\ell$. There exists a unique such $g$.
+
+\item Prove this as an exercise.
+\end{enumerate}
+\end{proof}
 
 \end{document}
