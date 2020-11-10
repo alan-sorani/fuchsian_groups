@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.12.0 (MiKTeX 20.7) (format=lualatex 2020.9.3)  3 NOV 2020 15:20
+This is LuaHBTeX, Version 1.12.0 (MiKTeX 20.7) (format=lualatex 2020.9.3)  10 NOV 2020 15:20
  restricted system commands enabled.
 **"Fuchsian Groups.tex"
 ("./Fuchsian Groups.tex"
@@ -1037,20 +1037,38 @@ Overfull \hbox (16.23894pt too wide) in paragraph at lines 689--690
 [19
 
 ]
+Overfull \hbox (5.08286pt too wide) in paragraph at lines 732--733
+[]\TU/lmr/m/n/10 A sub-group of $[][] []$ is called a \TU/lmr/m/it/10 Fuch-
+ []
+
+[20] [21]
+Overfull \hbox (17.96477pt too wide) in paragraph at lines 844--845
+[]\TU/lmr/m/it/10 If $\OML/cmm/m/it/10 g \OMS/cmsy/m/n/10 2 [][] []$ \TU/lmr/m/
+it/10 is el-lip-tic, it is con-ju-gate to $[]$
+ []
+
+[22] [23]
+Overfull \hbox (14.88344pt too wide) in paragraph at lines 935--936
+[]\TU/lmr/m/n/10 We use the disc model $\U/msb/m/n/10 U$\TU/lmr/m/n/10 . Re-call
+ that we have an iso-mor-phism $\OML/cmm/m/it/10  [] [] [] [] \OMS/cmsy/m/n/10
+ !
+ []
+
+[24] [25] [26]
 \tf@thm=\write5
 
 \openout5 = Fuchsian Groups.thm
- [20] ("./Fuchsian Groups.aux"))
+ [27] ("./Fuchsian Groups.aux"))
 
 Here is how much of LuaTeX's memory you used:
- 20545 strings out of 481302
+ 20554 strings out of 481302
  100000,794899 words of node,token memory allocated
- 689 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 43 attribute, 61 glue_spec
-, 43 attribute_list, 2 write nodes
-   avail lists: 2:863,3:148,4:41,5:300,6:17,7:2726,8:77,9:671,10:6,11:103
- 36889 multiletter control sequences out of 65536+200000
- 94 fonts using 8696947 bytes
+ 777 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 65 attribute, 61 glue_spec
+, 65 attribute_list, 2 write nodes
+   avail lists: 2:897,3:152,4:47,5:349,6:18,7:2902,8:77,9:671,10:10,11:139
+ 36898 multiletter control sequences out of 65536+200000
+ 96 fonts using 8960387 bytes
  68i,18n,86p,826b,343s stack positions out of 5000i,500n,10000p,200000b,50000s
 <//?/c:/users/eladt/appdata/local/programs/miktex/fonts/opentype/public/lm/lmrom
 an10-bolditalic.otf><//?/c:/users/eladt/appdata/local/programs/miktex/fonts/open
@@ -1081,9 +1099,9 @@ t/line10.pfb><C:/Users/EladT/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/symbols/msam10.pfb><C:/Users/EladT/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/public/amsfonts/symbols/msbm10.pfb><C:/Users/EladT/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Fuchsian Groups.pdf (20 pages, 276021 bytes).
+Output written on Fuchsian Groups.pdf (27 pages, 318200 bytes).
 
-PDF statistics: 195 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 217 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 

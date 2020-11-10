@@ -8,3 +8,4 @@
 \contentsline {chapter}{\numberline {2}Fuchsian Groups}{19}%
 \contentsline {section}{\numberline {2.1}Fuchsian Groups}{19}%
 \contentsline {subsection}{\numberline {2.1.1}Definitions}{19}%
+\contentsline {subsection}{\numberline {2.1.2}Elementary Subgroups}{25}%

@@ -724,4 +724,322 @@ Let $\gamma \colon \mbb{R} \to \mbb{H}$ be the geodesic given by $\gamma\prs{t} 
 \end{enumerate}
 \end{proof}
 
+%10.11.2020
+
+We remind that $\mrm{PSL}_2\prs{\mbb{R}}$ is a topological group homeomorphic to $\mbb{H} \times S^1$. 
+
+\begin{definition}[Fuchsian Group]
+A subgroup of $\mrm{PSL}_2\prs{\mbb{R}}$ is called a \emph{Fuchsian group} if it is discrete.
+\end{definition}
+
+\begin{example}
+$\mrm{PSL}_2\prs{\mbb{Z}}$ is a Fuchsian group.
+\end{example}
+
+\begin{definition}
+Let $X$ be a metric space and let $G \leq \mrm{Isom}\prs{X}$.
+\begin{enumerate}
+\item A \emph{multiset} $M$ of subsets of $X$ is called locally finite if for every compact subset $K \subseteq X$, the multiset $\left[K \cap A \middle| A \in M\right]$ is finite.
+\item We say that $G$ \emph{acts properly discontinuously} on $X$ if for every $x \in X$ the multiset $\left[ \set{gx} \middle| g \in G \right]$ is locally finite.
+\end{enumerate}
+\end{definition}
+
+\begin{exercise}
+Let $G$ be a group which acts on a metric space $X$ by isometries. Prove that the following conditions are equivalent.
+\begin{enumerate}
+\item%1
+$G \acts X$ is properly discontinuous.
+\item%2
+Every $G$-orbit of $X$ is discrete, and the stabiliser of each point is finite.
+\item For every sequence $\prs{g_n}_{n \in \mbb{N}} \subseteq G$ of distinct elements of $G$ and every $x \in X$ it holds that $\lim_{n\to\infty} g_n x \neq x$.
+\item For every $x \in X$ there exists an open neighbourhood $V$ of $x$ such that the set $\set{g \in G}{gV \cap V \neq \ns}$ is finite.
+\end{enumerate}
+\end{exercise}
+
+\begin{example}
+$\mrm{PSL}_2\prs{\mbb{Z}}$ is discrete and acts continuously on $\del \mbb{H} = \mbb{R} \cup \set{\infty}$. The orbit of $0$ under $\mrm{PSL}_2\prs{\mbb{Z}}$ is $\mbb{Q}$ which is not a discrete subset. Hence the action is not properly discontinuous.
+\end{example}
+
+\begin{lemma}
+For every $z \in \mbb{H}$ the stabiliser $\mrm{stab}_{\mrm{PSL}_2\prs{\mbb{R}}}\prs{z}$ is compact.
+\end{lemma}
+
+\begin{proof}
+Since the action of $\mrm{PSL}_2\prs{\mbb{R}}$ on $\mbb{H}$ is continuous and transitive, it's enough to check the claim for a single point, say $z = i$.
+
+Let $g = \bmat{a & b \\ c & d} \in \mrm{PSL}_2\prs{\mbb{R}}$. Assume
+\[T_g\prs{i} = \frac{a_i + b}{c_i + d} = i \text{.}\]
+Then
+$ai + b = -c + di$ implies $a=d$ and $b=-c$. Then \[\mrm{stab}_{\mrm{PSL}_2\prs{\mbb{R}}}\prs{i} = \set{\bmat{a & b \\ -b & a}}{\substack{a^2 + b^2 = 1 \\ a,b \in \mbb{R}}} \text{.}\]
+\end{proof}
+
+\begin{lemma}
+Let $w \in \mbb{H}$ and let $K \subseteq \mbb{H}$ be compact. Then
+\[\set{g \in \mrm{PSL}_2\prs{\mbb{R}}}{T_g\prs{w} \in K}\]
+is compact.
+\end{lemma}
+
+\begin{proof}
+The hyperbolic and Euclidean topologies on $\mbb{H}$ are equal. Define a map
+\begin{align*}
+\rho \colon K &\to \mrm{PSL}_2\prs{\mbb{R}} \\
+z &\mapsto g_z \ceq \bmat{a_z & b_z \\ 0 & a_z^{-1}}
+\end{align*}
+with
+\begin{align*}
+a_z &\ceq \sqrt{\frac{\Im\prs{z}}{\Im\prs{w}}} \\
+b_z &\ceq -a_z^{-1} \Re\prs{z} - a_z \Re\prs{w} \text{.}
+\end{align*}
+
+For every $z \in K$
+\begin{align*}
+T_{g_z}\prs{w} &= a_z^2 w + b_z a_z w
+\\&=
+\frac{\Im\prs{z}}{\Im\prs{w}} w + \Re\prs{z} - \frac{\Im\prs{z}}{\Im\prs{w}} \Re\prs{w}
+\\&= z \text{.}
+\end{align*}
+It's clear from definition that $\rho$ is continuous, so $M \ceq \im\prs{\rho}$ is compact. We get that
+\[\set{g \in \mrm{PSL}_2\prs{\mbb{R}}}{gw \in K} = M \cdot \mrm{Stab}_{\mrm{PSL}_2\prs{\mbb{R}}}\prs{w}\]
+where the last expression is the product of two compact subsets of $\mrm{PSL}_2\prs{\mbb{R}}$. A product of compact subsets of a topological group is compact, hence the result.
+\end{proof}
+
+\begin{theorem}
+A subgroup $\Gamma \leq \mrm{PSL}_2\prs{\mbb{R}}$ is discrete if and only if it acts properly discontinuously on $\mbb{H}$.
+\end{theorem}
+
+\begin{proof}
+\begin{itemize}
+\item Assume first that $\Gamma$ is discrete. If $K \subseteq \mbb{H}$ is compact and $w \in \mbb{H}$, the previous lemma tells us that $\set{g \in \Gamma}{gw \in K}$ is the intersection of a discrete subset with a compact subset. Such an intersection is finite.
+
+\item Assume that $\Gamma$ is not discrete. Then there exists a sequence $\prs{g_n}_{n \in \mbb{N}} \subseteq \Gamma$ of distinct elements, which converges to the identity.
+Let $z \in \mbb{H}$. Then $\lim_{n\to\infty} g_nz = z$ so the $\Gamma$-action is not properly discontinuous.
+\end{itemize}
+\end{proof}
+
+\begin{corollary}
+Let $\Gamma \leq \mrm{PSL}_2\prs{\mbb{R}}$. Then $\Gamma$ is discrete if and only if every $\Gamma$-orbit is discrete.
+\end{corollary}
+
+\begin{proof}
+The only if part is clear. For the other direction it is enough to show that if every orbit is discrete then the stabiliser of every element is finite.
+
+Let $z \in \mbb{H}$, we know
+$\mrm{Stab}_{\mrm{PSL}_2\prs{\mbb{R}}}\prs{z}$
+is compact, so if $\mrm{Stab}_\Gamma\prs{z}$ is not finite, it is not discrete. Thus there exists a sequence $\prs{g_n}_{n \in \mbb{N}} \subseteq \mrm{Stab}_{\Gamma}\prs{z}$ of distinct elements, which converges to the identity.
+Every element of $\mrm{PSL}_2\prs{\mbb{R}}$ stabilises at most one element of $\mbb{H}$. So, there exists $w \in \mbb{H}$ which is not fixed by any $g_n$. Since $g_n \xrightarrow{n\to\infty} \id$ it holds that $g_n w \xrightarrow{n\to\infty} w$ so the orbit of $w$ under $\Gamma$ is not discrete, which contradicts the assumption.
+\end{proof}
+
+\begin{definition}
+Let $g \in \bmat{a & b \\ c & d} \in \mrm{PSL}_2\prs{\mbb{R}}$.
+\begin{enumerate}
+\item \emph{The trace of $g$} is $\tr\prs{g} = \abs{a+d}$.
+\item $g$ is called \emph{elliptic} if $\tr\prs{g} < 2$.
+\item $g$ is called \emph{parabolic} if $\tr\prs{g}=2$.
+\item $g$ is called \emph{hyperbolic} if $\tr\prs{g} > 2$.
+\end{enumerate}
+\end{definition}
+
+\begin{lemma} \label{lemma:conjugate_elements_in_subgroups_of_PSL_2}
+\begin{enumerate}
+\item If $g \in \mrm{PSL}_2\prs{\mbb{R}}$ is elliptic, it is conjugate to $\bmat{\cos \alpha & \sin \alpha \\ - \sin\alpha & \cos\alpha}$ for some $\alpha \in \mbb{R}$.
+
+\item If $g \in \mrm{PSL}_2\prs{\mbb{R}}$ is parabolic, it is conjugate to $\bmat{1 & 1 \\ 0 & 1}$ or to $\bmat{1 & 1 \\ 0 & 1}^{-1}$.
+
+\item If $g \in \mrm{PSL}_2\prs{\mbb{R}}$ is hyperbolic, it is conjugate to $\pmat{\lambda & 0 \\ 0 & \lambda^{-1}}$ for some $\lambda > 0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{remark}
+If we have a discrete group $\Gamma$ with an elliptic/parabolic/hyperbolic element, we can assume that the element is of the form in \ref{lemma:conjugate_elements_in_subgroups_of_PSL_2} by conjugating $\Gamma$ by the appropriate elements of $\mrm{PSL}_2\prs{\mbb{R}}$.
+\end{remark}
+
+\begin{notation}
+Let $g \in \mrm{PSL}_2\prs{\mbb{R}}$. We denote
+\[\mrm{Fix}\prs{g} \ceq \set{z \in \tilde{\mbb{H}}}{T_g\prs{z} = z}\]
+where $\tilde{\mbb{H}} \ceq \mbb{H} \cup \del \mbb{H}$.
+\end{notation}
+
+\begin{lemma}
+\begin{enumerate}
+\item If $g = \pmat{\cos \alpha & \sin \alpha \\ -\sin \alpha & \cos \alpha}$ for $\alpha \in \prs{0,\pi}$ then $\mrm{Fix}\prs{g} = i$.
+\item
+If $g = \bmat{1 & 1 \\ 0 & 1}$ then
+$\mrm{Fix}\prs{g} = \set{\infty}$.
+\item If $g = \bmat{\lambda & 0 \\ 0 & \lambda^{-1}}$ for $\lambda > 1$ then $\mrm{Fix}\prs{g} = \set{0, \infty}$. Also, $g$ preserves the geodesic $\set{iy}{y > 0}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{corollary}
+\begin{enumerate}
+\item If $g \in \mrm{PSL}_2\prs{\mbb{R}}$ is elliptic, $\mrm{Fix}\prs{g} = \set{z}$ is a unique point $z \in \mbb{H}$.
+\item If $g \in \mrm{PSL}_2\prs{\mbb{R}}$ is parabolic, $\mrm{Fix}\prs{g} = \set{z}$ is a unique point $z \in \del \mbb{H}$.
+\item If $g \in \mrm{PSL}_2\prs{\mbb{R}}$ is hyperbolic, then $\mrm{Fix}\prs{g} = \set{z,w}$ where $z \neq w$ and $z,w \in \del \mbb{H}$. Moreover, $g$ preserves the unique geodesic through $z$ and $w$. This geodesic is called \emph{the axis of $g$}. 
+\end{enumerate}
+\end{corollary}
+
+\begin{exercise}
+If $g \in \mrm{PSL}_2\prs{\mbb{R}}$ and $\trs{g}$ has an orbit of size $2$ in $\tilde{\mbb{H}}$, then $g$ is elliptic of order $2$.
+\end{exercise}
+
+\begin{solution}
+Orbits under $\bmat{1 & 1 \\ 0 & 1}$ are orbits under $z \mapsto z+1$ which are infinite. So are orbits under $z \mapsto \lambda^2 z$.
+Orbits under $\bmat{\cos \alpha & \sin \alpha \\ -\sin \alpha & \cos\alpha}$ can be of order $2$ if and only if $\alpha = \pm \pi$, from which $g$ is of order $2$.
+\end{solution}
+
+\begin{lemma}
+Let $G \in \catname{Grp}$ and let $X \in G\mrm{-}\Set$. If $g,h \in G$ commute then
+\[g\prs{\mrm{Fix}\prs{h}} = \mrm{Fix}\prs{h} \text{.}\]
+\end{lemma}
+
+\begin{proof}
+Let $x \in \mrm{Fix}\prs{h}$. Then $h\prs{gx} = \prs{gh} x = gx$ so $gx \in \mrm{Fix}\prs{h}$. Hence
+\[g \mrm{Fix}\prs{h} \subseteq \mrm{Fix}\prs{h} \text{.}\]
+Similarly
+\[g^{-1} \mrm{Fix}\prs{h} \subseteq \mrm{Fix}\prs{h}\]
+by looking at $g^{-1}$, then
+\[g\prs{\mrm{Fix}\prs{h}} = \mrm{Fix}\prs{h} \text{.}\]
+\end{proof}
+
+\begin{lemma}
+The following hold, where isomorphisms are those of topological groups.
+\begin{enumerate}
+\item For every $\alpha \in \prs{0,\pi}$,
+\[\mrm{Cent}_{\mrm{PSL}_2\prs{\mbb{R}}} \prs{\bmat{\cos \alpha & \sin \alpha \\ -\sin\alpha & \cos \alpha}} = \set{\bmat{\cos \beta & \sin \beta \\ -\sin \beta & \cos \beta}}{\beta \in \brs{0,\pi}} \cong S^1 \text{.}\]
+\item It holds that
+\[\mrm{Cent}_{\mrm{PSL}_2\prs{\mbb{R}}} \prs{\bmat{1 & 1 \\ 0 & 1}} = \set{\pmat{1 & a \\ 0 & 1}}{a \in \mbb{R}} \cong \prs{\mbb{R}, +} \text{.}\]
+\item For every $\lambda > 0$ different than $1$ it holds that
+\[\mrm{Cent}_{\mrm{PSL}_2\prs{\mbb{R}}} \prs{\bmat{\lambda & \\ & \lambda^{-1}}}{\eta > 0} \cong \prs{\mbb{R}, +} \text{,}\]
+where the isomorphism is given by $\ln$.
+\end{enumerate}
+\end{lemma}
+
+\begin{remark}
+\begin{enumerate}
+\item In particular it follows from the lemma that two non-identity elements $g, g'$ in $\mrm{PSL}_2\prs{\mbb{R}}$ commute if and only if $\mrm{Fix}\prs{g} = \mrm{Fix}\prs{g'}$.
+
+\item If $\Gamma$ is a Fuchsian group, then the centraliser of every element $g \in \Gamma$ is cyclic and it is finite if and only if $g$ is elliptic.
+
+\item An abelian Fuchsian group is cyclic.
+\end{enumerate}
+\end{remark}
+
+\begin{example}
+A Fuchsian group does not contain a subgroup isomorphic to $\mbb{Z} \times \mbb{Z}$.
+\end{example}
+
+\begin{lemma}
+If $\Gamma \leq \mrm{PSL}_2\prs{\mbb{R}}$ is non-abelian then $\Gamma$ contains a non-elliptic element different from the identity.
+\end{lemma}
+
+\begin{proof}
+We use the disc model $\mbb{U}$. Recall that we have an isomorphism $\rho \colon \mrm{Isom}\prs{\mbb{H}} \to \mrm{Isom}\prs{\mbb{U}}$ which is given by conjugation, so it preserves traces.
+
+Let $g,h \in \Gamma$ be non-commuting elements. We show that if $g$ is elliptic then $\brs{g,h}$ is not elliptic. We can assume that
+\[\rho\prs{g} \ceq \bmat{a & 0 \\ 0 & \bar{a}} \in \Gamma\]
+and
+\[\rho\prs{h} \ceq \bmat{b & c \\ \bar{c} & \bar{b}} \in \Gamma\]
+where $\Im\prs{a} \neq 0$ and $c \neq 0$ since $g,h$ don't commute.
+Then
+\[\rho\prs{\brs{g,h}} = \bmat{\abs{b}^2 - a^2  \abs{c}^2 & *\\ * \abs{b}^2 - \bar{a}^2 \abs{c}^2} \text{.}\]
+So
+\begin{align*}
+\tr\prs{\brs{g,h}} &=
+\tr\prs{\rho\brs{g,h}}
+\\&= 2 \abs{b}^2 - \prs{a^2 + \bar{a}^2}  \abs{c}^2
+\\&= 2 \abs{b}^2 - \prs{\prs{a- a^{-1}}^2 + 2} \abs{c}^2
+\\&= 2 \cancelto{1}{\prs{\abs{b}^2 - \abs{c}^2}} - \prs{a - \frac{1}{a}} \abs{c}^2
+\\&= 2 + 4 \Im\prs{a}^2 \abs{c}^2
+\\&> 2 \text{.}
+\end{align*}
+\end{proof}
+
+\begin{theorem}
+Let $\Gamma$ be a non-abelian Fuchsian groups. Then
+\[N \ceq N_{\mrm{PSL}_2\prs{\mbb{R}}}\prs{\Gamma} \ceq \set{g \in \mrm{PSL}_2\prs{\mbb{R}}}{g \Gamma g^{-1} = \Gamma}\]
+is a Fuchsian group.
+\end{theorem}
+
+\begin{proof}
+Assume otherwise and let $\prs{h_n}_{n \in \mbb{N}}$ be a sequence of distinct elements of $N$ which converges to the identity.
+Let $g \in \Gamma$. For every $n \in \mbb{N}$ it holds that $h_n g h_n^{-1} \in \Gamma$, and it holds that $\lim_{n\to\infty} h_n g h_n^{-1} = g$. Since $\Gamma$ is discrete, there exists $M_g$ such that for every $n > M_g$ it holds that $h_n g h_n^{-1} = g$. Then $h_n,g$ commute so $\mrm{Fix}\prs{g} = \mrm{Fix}\prs{h_n}$.
+Since $\Gamma$ is not abelian, there exist $g_1,g_2 \in \Gamma \setminus \set{\id}$ which do not commute, so $\mrm{Fix}\prs{g_1} \neq \mrm{Fix}\prs{g_2}$.
+On the other hand, for large enough $n \in \mbb{N}$ it holds that
+\[\mrm{Fix}\prs{g_1} = \mrm{Fix}\prs{h_n} = \mrm{Fix}\prs{g_2} \text{,}\]
+a contradiction.
+\end{proof}
+
+\subsection{Elementary Subgroups}
+
+\begin{definition}[Elementary Subgroup]
+A subgroup $\Gamma \leq \mrm{PSL}_2\prs{\mbb{R}}$ is called \emph{elementary} if it has a finite orbit in $\tilde{\mbb{H}}$.
+\end{definition}
+
+\begin{lemma}
+A Fuchsian group is elementary if and only if it has a cyclic subgroup of index $2$.
+\end{lemma}
+
+\begin{proof}
+\begin{itemize}
+\item
+Let $\Lambda \leq \Gamma$ of finite index. Then $\Lambda$ is elementary if and only if $\Gamma$ is. The if part is clear since abelian subgroups of $\mrm{PSL}_2\prs{\mbb{R}}$ have a fixed point.
+
+Let $\Gamma$ be an elementary Fuchsian group. It is enough to prove that $\Gamma$ contains an index 2 abelian subroup since abelian Fuchsian groups are cyclic.
+If all non-identity elements are elliptic, then $\Gamma$ is abelian. Assume $\Gamma$ contains a hyperbolic element $g$. Assume by conjugation that $\mrm{Fix}\prs{g} = \set{0,\infty}$. Then $\set{0,\infty}$ are the only finite orbits of $\trs{g}$ in $\tilde{\mbb{H}}$ so $\Gamma$ preserves $\set{0,\infty}$.
+
+Let $h = \pmat{0 & 1 \\ -1 & 0}$, so that $T_h\prs{z} = -\frac{1}{z}$. Recall that $k \in \mrm{PSL}_2\prs{\mbb{R}}$ commutes with $g$ if and only if $\mrm{Fix}\prs{k} = \mrm{Fix}\prs{g}$.
+Thus \[\Gamma \leq \mrm{Cent}_{\mrm{PSL}_2\prs{\mbb{R}}}\prs{g} \rtimes \trs{h} \text{.}\]
+Indeed, $h$ is of order $2$ and conjugation by $h$ sends $g$ to $g^{-1}$.
+
+It follows that $\Gamma \cap \mrm{Cent}_{\mrm{PSL}_2\prs{\mbb{R}}}\prs{g}$ is an abelian subgroup of $\Gamma$ of index at most $2$.
+
+\item
+Assume now that $\Gamma$ contains a parabolic element $g$ but no hyperbolic elements. $\trs{g}$ has a unique finite orbit in $\tilde{\mbb{H}}$ and it is $\mrm{Fix}\prs{g}$. Thus every element of $\Gamma$ fixes $\mrm{Fix}\prs{g} \subseteq \del \mbb{H}$, so every element is either either parabolic with the same fixed point, hyperbolic, or elliptic. It cannot be hyperbolic by assumption, and cannot be elliptic since it does not preserve a point in $\mbb{H}$.
+
+We get that for non-identity elements $k \in \Gamma$ it holds that $\mrm{Fix}\prs{h} = \mrm{Fix}\prs{g}$ so $\Gamma$ is abelian.
+\end{itemize}
+\end{proof}
+
+\begin{exercise}
+Show that if $g,h \in \mrm{PSL}_2\prs{\mbb{R}}$, $g$ is hyperbolic, $\brs{g,h} \neq \id$ and $\trs{g,h}$ is a Fuchsian elementary group then $\trs{g,h} \cong \mbb{Z} \rtimes \mbb{Z}_2$ and $h\prs{\mrm{Fix}\prs{g}} = \mrm{Fix}\prs{g}$.
+\end{exercise}
+
+\begin{lemma}
+Any non-elementary group $\Gamma \leq \mrm{PSL}_2\prs{\mbb{R}}$ contains a hyperbolic element.
+\end{lemma}
+
+\begin{proof}
+Since $\Gamma$ is not abelian, it contains a non-elliptic element $g \in \Gamma \setminus \set{\id}$. We can assume by conjugation that $g = \bmat{1 & 1 \\ 0 & 1}$. Since $\Gamma$ is not abelian, it contains an element $h = \bmat{a & b \\ c & d} \in \mrm{PSL}_2\prs{\mbb{R}}$ which does not commute with $g$. Hence $c \neq 0$ or $b \neq 0$. But,
+\begin{align*}
+\tr\prs{g^n h} &= \tr\bmat{a + cn & b+dn\\c&d} = \abs{a + cn + d} \\
+\tr\prs{h g^n} &= \tr\bmat{a & b+an \\ c & d+bn} = \abs{a + d + bn}
+\end{align*}
+where both terms go to $\infty$ as $n \to \infty$, so at some point $g^n h$ and $h g^n$ are hyperbolic.
+\end{proof}
+
+\begin{exercise}
+Let $\Gamma \leq \mrm{PSL}_2\prs{\mbb{R}}$ be non-elementary and let $X \subseteq \del \mbb{H}$ be finite. Then there's a hyperbolic $g \in \Gamma$ such that $\mrm{Fix}\prs{g} \cap \Gamma = \ns$.
+\end{exercise}
+
+\begin{theorem}
+Let $\Gamma \leq \mrm{PSL}_2\prs{\mbb{R}}$ be non-elementary and assume that $\Gamma$ does not contain an elliptic element. Then $\Gamma$ is discrete.
+\end{theorem}
+
+\begin{proof}
+Let $\prs{g_n}_{n \in \mbb{N}}$ be a sequence of elements of $\Gamma$ which converges to $\id$. Denote $g_n = \bmat{a_n & b_n \\ c_n & d_n}$. We have to show that $g_n = \id$ for all $n$ large enough.
+By the previous exercise, it is enough to show that for every hyperbolic $h \in \Gamma$, if $n$ is large enough (depending on $h$) it holds that $h, g_n$ have a common fixed point.
+
+Let $h \in \Gamma$ be a hyperbolic element. We can assume that $h = \bmat{u & \\ & u^{-1}}$ for some $u > 1$. If $g = \bmat{a & b \\ c & d}$. Then
+\[\brs{h,g} = \bmat{ad - bc u^2 & ab \prs{u^2 - 1} \\ cd \prs{u^{-2} - 1} & ad - bc u^{-2}} \text{.}\]
+So,
+\[\tr\prs{\brs{h,g}} = 2 \prs{ad - bc} - bc\prs{u - u^{-1}}^2 = 2 - bc \prs{u-u^{-1}}^2 \text{.}\]
+Also
+\begin{align*}
+\tr\prs{\brs{h, \brs{h,g}}} &= 2 - abcd \prs{u^2 - 1}\prs{u^{-2} - 1}\prs{u - u^{-1}}
+\\&=
+2 + abcd \abs{\prs{u^2 - 1}\prs{u^{-2} - 1}\prs{u - u^{-1}}^2} \text{.}
+\end{align*}
+Adding these two equations gives that if $\tr\prs{\brs{h,g}} \geq 2$ and $\tr\prs{\brs{h,\brs{h,g}}} \geq 2$ then $bc \leq 0$ and either $bc = 0$ or $ad \leq 0$.
+Applying this to the sequence $\prs{g_n}_{n \in \mbb{N}}$ and noting that $\lim_{n \to \infty} a_n d_n = 1$ for large enough $n$ we get $b_n = c_n = 0$. If $b_n = 0$ then $0$ is a fixed point of $g_n$ and if $c_n = 0$ then $\infty$ is a fixed point of $g_n$. In either case, $g_n$ and $h$ have a common fixed point.
+\end{proof}
+
 \end{document}
