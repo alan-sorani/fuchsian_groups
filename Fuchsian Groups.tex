@@ -1042,4 +1042,305 @@ Adding these two equations gives that if $\tr\prs{\brs{h,g}} \geq 2$ and $\tr\pr
 Applying this to the sequence $\prs{g_n}_{n \in \mbb{N}}$ and noting that $\lim_{n \to \infty} a_n d_n = 1$ for large enough $n$ we get $b_n = c_n = 0$. If $b_n = 0$ then $0$ is a fixed point of $g_n$ and if $c_n = 0$ then $\infty$ is a fixed point of $g_n$. In either case, $g_n$ and $h$ have a common fixed point.
 \end{proof}
 
+%17.11.2020
+
+\begin{theorem}[Jorgensen Inequality]\label{theorem:Jorgensen_inequality}
+Let $g,h \in \mrm{PSL}_2\prs{\mbb{R}}$ and assume that $\trs{g,h}$ is a non-elementary discrete group.
+Then
+\[\abs{\tr\prs{g}^2 - 4} + \abs{\tr\brs{g,h} - 2} \geq 1 \text{.}\]
+\end{theorem}
+
+\begin{theorem}
+A non-elementary group $\Gamma \leq \mrm{PSL}_2\prs{\mbb{R}}$ is discrete if and only if for every $g,h \in \Gamma$ the group $\trs{g,h}$ is discrete.
+\end{theorem}
+
+\begin{theorem}
+The only if part is clear. Assume therefore that $\trs{g,h}$ is discrete for every $g,h \in \Gamma$ and assume towards a contradiction that there's $\prs{g_n}_{n \in \mbb{N}} \subseteq \Gamma \setminus \set{\id}$ such that $g_n \xrightarrow{n\to\infty} \id$.
+
+We proved that $\Gamma$ contains hyperbolic elements $h_1, h_2$ such that $\mrm{Fix}\prs{h_1} \cap \mrm{Fix}\prs{h_2} = \ns$.  The only element of $\mrm{PSL}_2\prs{\mbb{R}}$ which fixes $4$ points is the identity. Thus it is enough to prove that for every hyperbolic element $h$ there exists $M_h$ such that for every $n \geq M_h$ it holds that $\mrm{Fix}\prs{h} = \mrm{Fix}\prs{g_n}$.
+
+Let $h$ be a hyperbolic element. Choose $M_h$ large enough such that for every $n \geq M_h$ it holds that
+\[\abs{\tr\prs{g_n}^2 - 4} + \abs{\tr\brs{h,g_n} - 2} < 1\]
+and the order of $g_n$ is not $2$.
+By Jorgensen inequality, $\trs{g,h}$ is elementary. Since the only finite orbits of $\trs{h}$ are contained in $\mrm{Fix}\prs{h}$ we get that $\mrm{Fix}\prs{g} = g_n \prs{\mrm{Fix}\prs{h}}$. Since $\abs{\mrm{Fix}\prs{h}} = 2$, either $\mrm{Fix}\prs{g_n} = \mrm{Fix}\prs{h}$ or $g_n$ switches the two elements in $\mrm{Fix}\prs{h}$. The latter is impossible since the order of $g_n$ is not $2$, and thus there are no $\trs{g_n}$-orbits of size $2$.
+\end{theorem}
+
+\begin{lemma}\label{lemma:Jorgensen:lemma_1}
+Let $g,h \in \mrm{PSL}_2\prs{\mbb{R}}$. Define $g_1 = g$ and for every $n \geq 1$ define $g_N \ceq g_{n-1} h g_{n-1}^{-1}$. If for some $n \geq 0$ it holds that $gh = h$, then $\trs{g,h}$ is elementary and $g_2 = h$.
+\end{lemma}
+
+\begin{proof}
+The claim is clear if $g_0 = h$ so assume that $g_n = h$ for some $n \geq 1$. We claim that for every $k \in \brs{n}$ it holds that $\mrm{Fix}\prs{h} = \mrm{Fix}\prs{g_k}$. Indeed, assume that $k \in \brs{n}$ and $\mrm{Fix}\prs{h} = \mrm{Fix}\prs{g_k}$. The claim follows if $\abs{\mrm{Fix}\prs{h}} = 1$ since $\abs{\mrm{Fix}\prs{g_{k-1}}} = \abs{\mrm{Fix}\prs{h}}$ (since $g_{k-1}$ and $h$ are conjugate).
+
+If $\abs{\mrm{Fix}\prs{h}} = 2$ then $h$ is hyperbolic so $g_{k-1} = g_{k-2} h g_{k-2}$ is hyperbolic and thus cannot switch the two points in $\mrm{Fix}\prs{h}$. We deduce that $\mrm{Fix}\prs{h} = \mrm{Fix}\prs{g_{k-1}}$ also in this case.
+
+It follows that $h$ and $g_1$ have the same fixed points so they commute and $g_2 = g_1 h g_1^{-1} = h$.
+
+Finally, \[\mrm{Fix}\prs{h} = \mrm{Fix}\prs{g_1} = g_0\prs{\mrm{Fix}\prs{h}} = g \prs{\mrm{Fix}\prs{h}}\]
+so $\mrm{Fix}\prs{h}$ contains a $\trs{h,g}$-orbit, so $\trs{g,h}$ is elementary.
+\end{proof}
+
+\begin{lemma}\label{lemma:Jorgensen:lemma_2}
+Let $g,h \in \mrm{PSL}_2\prs{\mbb{R}} \setminus \set{\id}$. Assume that $\abs{\tr\prs{g}^2 - 4} + \abs{\tr\brs{g,h} - 2} < 1$. Define $g_0 \ceq g$, and for every $n \geq 1$ define $g_n \ceq g_{n-1} h g_{n-1}^{-1}$. Then
+\begin{enumerate}
+\item If $h$ is parabolic, $\lim_{n \to \infty} g_n = h$.
+\item If $h$ is hyperbolic $\lim_{n \to \infty} h^n g_{2n} h^{-n} = h$.
+\item If $h$ is elliptic, $\lim_{n\to\infty} g_n = h$.
+\item If $h$ is 
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Denote
+\[g_n = \bmat{a_n & b_n \\ c_n & d_n} \text{.}\]
+\begin{enumerate}
+\item%1
+We can assume that $h = \pmat{1 & 1 \\ 0 & 1}$. Then $\tr\prs{\brs{h,g}} = 2 + c_0^2$ and
+\[g_{n+1} = g_n h g_n^{-1} = \bmat{1 - a_n c_n & a_n^2 \\ -c_n^{2} & 1 + a_n c_n} \text{.}\]
+It follows that
+\begin{enumerate}
+\item $\abs{c_0} < 1$ since $\abs{c_0^2} = \abs{\tr\brs{h,g} - 2} < 1$.
+We know $c_n = -\prs{c_0}^{2^n}$ and $\abs{a_{n+1}} \leq 1 + \abs{a_n}$. So $\abs{a_n} \leq n + \abs{a_0}$.
+\item Since $\abs{c_0} < 1$ and $c_n = -\prs{c_0}^{2^n}$ it holds that $c_n \to 0$. By the bound on $a_n$ we get also $a_n c_n \to 0$. By the formula for $a_{n+1}$ we get $a_n \to 1$. Then $g_n \to h$.
+\end{enumerate}
+\item%2
+We can assume that
+\[h = \bmat{u & 0 \\ 0 & u^{-1}}\]
+with $u > 1$. Then
+\[\mu \ceq \abs{\tr\prs{g}^2 - 4} + \abs{\tr\brs{h,g} - 2} = \prs{1+\abs{bc}}\prs{u - u^{-1}}^2 < 1 \text{,}\]
+and
+\[g_{n+1} = g_n h g_n^{-1} = \bmat{a_n d_n u - b_n c_n u^{-1} & a_n b_n \prs{u^{-1} - u} \\ c_n d_N \prs{u - u^{-1}} & a_n d_n u^{-1} - b_n c_n u} \text{.}\]
+We deduce the following.
+\begin{enumerate}
+\item
+\[b_{n+1} c_{n+1} = a_n b_n c_n d_n \prs{u - u^{-1}} \prs{u^{-1} - u} = -b_n c_n \prs{1 + b_n c_n} \prs{u - \frac{1}{u}}^2 \text{,}\]
+so \[\abs{b_n - c_n} \leq \mu^n \abs{b_0 c_0} \xrightarrow{n\to\infty} 0\text{.}\]
+\item \[a_n d_n = 1 + b_n c_n \xrightarrow{n\to\infty} 1\]
+so
+$a_n \to u$ and $d_n \to u^{-1}$.
+\item \[\abs{\frac{b_{n+1}}{b_n}} = \abs{a_n \prs{u - u^{-1}}} \xrightarrow{n\to\infty} \abs{u \prs{u-u^{-1}}} \leq \sqrt{\mu} \cdot \abs{u} \text{.}\]
+Hence
+\[\abs{\frac{b_{n+1}}{u^{n+1}}} \leq \sqrt{\mu} \abs{\frac{b_n}{u^n}}\]
+so
+$\frac{b_n}{\mu^n} \xrightarrow{n\to\infty} 0$.
+\item Similarly, \[\abs{\frac{c_{n+1}}{c_n}} = \abs{d_n \prs{u - u^{-1}}} \xrightarrow{n\to\infty} \abs{u^{-1}\prs{u - u^{-1}}} \leq \sqrt{\mu} u^{-1} \leq \abs{c_{n+1} u^{n+1}} \leq \sqrt{\mu} \abs{c_n u^n} \text{,}\]
+so $c_n u_N \xrightarrow{n\to\infty} 0$.
+\item We get by the above parts that
+\begin{align*}
+h^n g_{2n} h^{-n} &= \bmat{a_{2n} & b_{2n} u^{-2}  \\ c_{2n} u^{2n} & d_n} \xrightarrow{n\to\infty} h \text{.}
+\end{align*}
+\end{enumerate}
+\item%3
+We use the disc model and regard $g, h \in \mrm{Isom}\prs{\mbb{U}}$. We can assume that $h = \bmat{u & 0 \\ 0 & u^{-1}}$ where $u \in \mbb{C}$ is such that $\abs{u} = 1$.
+
+Let
+\[\mu \ceq \abs{\tr\prs{g}^2 - 4} + \abs{\tr\brs{g,h} - 2} = \prs{1 + \abs{bc}} \prs{u - u^{-1}}^2 < 1\]
+and let
+\[g_{n+1} = g_n h g_n^{-1} = \bmat{a_n d_n u - b_n c_n u^{-1} & a_n b_n \prs{u^{-1} - u} \\ c_n d_N \prs{u - u^{-1}} & a_n d_n u^{-1} - b_n c_n u} \text{.}\]
+as above.
+We deduce that following.
+\begin{enumerate}
+\item%a
+\[b_{n+1} c_{n+1} = - b_n c_n \prs{1 + b_n c_n} \prs{u - \frac{1}{u}}^2\]
+so $\abs{b_n c_n} \leq \mu^n \abs{b_0 c_0}$
+and $b_n c_n \xrightarrow{n\to\infty} 0$, as before.
+
+\item%b
+$a_n d_N = 1 + b_n c_n \xrightarrow{n\to\infty} 1$, so $a_n \xrightarrow{n\to\infty} u$ and $d_n \xrightarrow{n\to\infty} u^{-1}$.
+
+\item%c
+\[\abs{\frac{b_{n+1}}{b_n}} = \abs{a_n \prs{u - u^{-1}}} \xrightarrow{n\to\infty} \abs{u \prs{u - u^{-1}}} \leq \sqrt{\mu} \cdot \abs{u} = \sqrt{\mu} < 1\text{,}\]
+so $b_n \xrightarrow{n \to\infty} 0$.
+\item
+\[\abs{\frac{c_{n+1}}{c_n}} = \abs{d_n \prs{u - u^{-1}}} \xrightarrow{n\to\infty} \abs{u^{-1} \prs{u -u^{-1}}} \leq \sqrt{\mu} \cdot \abs{u}^{-1} = \sqrt{\mu}\]
+so $c_n \xrightarrow{n \to\infty} 0$.
+\end{enumerate}
+\end{enumerate}
+\end{proof}
+
+\begin{proof}[\ref{theorem:Jorgensen_inequality}]
+Assume \[\abs{\tr\prs{g}^2 - 4} + \abs{\tr\brs{h,g} - 2} < 1 \text{.}\]
+Define $g_0 = g$ and for every $n \geq 1$ assume $g_n = g_{n-1} h g_{n-1}^{-1}$.
+We claim that there exists $n$ such that $g_n = h$. If this is true, \ref{lemma:Jorgensen:lemma_1} implies that $\trs{g,h}$ is elementary.
+
+We prove our claim. If $h$ is parabolic or elliptic, this follows from \ref{lemma:Jorgensen:lemma_2} and discreteness.
+If $g$ is hyperbolic, \ref{lemma:Jorgensen:lemma_2} and discreteness imply that that for large enough $n$ it holds that $h^n g_{2n} h^{-n} = h$ so $g_{2n} = h$.
+\end{proof}
+
+\subsection{Fundamental Domains}
+
+\begin{definition}[Fundamental Set]
+Let $G$ be a group and $X$ a $G$-set. A representative set for the $G$-orbits is called a \emph{fundamental set}.
+\end{definition}
+
+\begin{definition}[Fundamental Domain]
+Let $\Gamma$ be a Fuchsian group. A subset $D \subseteq \mbb{H}$ is called a fundamental domain for $\Gamma$ if the following holds.
+\begin{enumerate}
+\item $D$ is a domain (i.e. connected \& open).
+\item There is a fundamental set $F$ such that $D \subseteq F \subseteq \bar{D}$.
+\item The hyperbolic area of $\del D$ is zero.
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}
+Let $D$ be a fundamental domain.
+If $z_1, z_2 \in \bar{D}$ are in the same $\Gamma$-orbit, than $z_1, z_2 \in \del D$.
+\end{lemma}
+
+\begin{proof}
+Part 2 of the definition implies that at least one of $z_1, z_2$ belongs to $\del D$. Assume $z_1 \in D$. There exists a sequence $\prs{w_n}_{n \in \mbb{N}} \subseteq D$ which converges to $z_2$. If $g z_1 = z_2$ then $\prs{g^{-1} w_n}_{n \in \mbb{N}}$ converges to $z_1$. Since $D$ is open, for large enough $n$, $g^{-1} w_n \in D$. But, since \[z_1 = \lim_{n\to\infty} g^{-1} w_n \neq \lim_{n \to \infty} w_n = z_2\] we get that $g^{-1} w_n \neq w_n$ for large enough $n$. This contradicts part 2 of the definition.
+\end{proof}
+
+\begin{theorem}
+Let $F_1, F_2$ be measurable fundamental sets for a Fuchsian group $\Gamma$. Then $\mrm{h-Area}\prs{F_1} = \mrm{h-Area}\prs{F_2}$.
+\end{theorem}
+
+\begin{proof}
+Let $\mu$ denote the hyperbolic area.
+We have
+\begin{align*}
+\mu\prs{F_1} &= \mu\prs{F_1 \cap \mbb{H}}
+\\&=
+\mu\prs{F_1 \cap \brs{\bigcup_{g \in \Gamma} g F_2}}
+\\&=
+\sum_{g \in \Gamma} \mu\prs{F_1 \cap g F_2}
+\\&=
+\sum_{g \in \Gamma} \mu\prs{g^{-1} F_1 \cap F_2}
+\\&=
+\sum_{g \in \Gamma} \mu\prs{g F_1 \cap F_2}
+\\&=
+\mu\prs{F_2} \text{.}
+\end{align*}
+\end{proof}
+
+\begin{theorem}
+Let $\Gamma \leq \mrm{PSL}_2\prs{\mbb{R}}$ be a Fuchsian group and let $\Lambda$ be a subgroup of $\Gamma$ of index $m$. If $\Gamma$ has a measurable fundamental set $F$, $\Lambda$ has a measurable fundamental set of measure $\mu\prs{F} \cdot m$.
+\end{theorem}
+
+\begin{proof}
+Assume $\prs{g_i}_{i \in \brs{m}}$ are representatives to right cosets.
+Then
+\begin{align*}
+\Gamma = \bigcup_{i \in \brs{m}} \Lambda g_i \text{.}
+\end{align*}
+
+If $w,z \in F$, $h \in \Lambda$, $i,j \in \brs{n}$ and $h g_1 z = g_2 w$ then
+\[a_2^{-1} h g_1 z = w \text{.}\]
+Since $F$ is a fundamental set for $\Gamma$ we get $z = w$ and $z \in \mrm{Fix}\prs{g_2^{-1} h g_1}$.
+
+Clearly, $\bigcup_{i \in [m]} F g_i$ contains a fundamental set for $\Gamma$. Thus, there exists a fundamental set $E$ of $\Gamma$ such that
+\[\bigsqcup_{i \in \brs{m}} g_i \prs{F \setminus \bigcup_{g \in \Gamma \setminus \set{1}} \mrm{Fix}\prs{g}} \subseteq E \subseteq \bigcup_{i \in \brs{m}} g_i F \text{.}\]
+The sets $\mrm{Fix}\prs{g}$ for $g \in \mrm{\Gamma}\setminus\set{1}$ are countable, hence $E$ is measurable with $\mu\prs{E} = m \cdot \mu\prs{F}$.
+\end{proof}
+
+\begin{lemma}
+Let $D$ be a fundamental domain for a Fuchsian group $\Gamma$. Denote by $\quot{D}{\Gamma}$ the quotient space after identifying points in the same orbit.
+We get the following commutative diagram.
+
+\[
+\begin{tikzcd}
+\bar{D} \arrow[r, "\tau"] \arrow[d, "\tilde{\pi}"] & \mbb{H} \arrow[d, "\pi"]
+\\
+\quot{\bar{D}}{\Gamma} \arrow[r, "\theta"] & \quot{\mbb{H}}{\Gamma}
+\end{tikzcd}
+\]
+
+Then
+\begin{enumerate}
+\item $\theta,\tau$ are injective.
+\item $\pi, \tilde{\pi}, \theta$ are surjective. Then, $\theta$ is bijective.
+\item $\pi, \tilde{\pi}, \tau$ are continuous.
+\item $\pi$ is open.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Every part of the proof is clear except maybe that $\theta$ is continuous and that $\pi$ is open.
+We now have the following.
+\begin{itemize}
+\item Recall that $V \subseteq \quot{\mbb{H}}{\Gamma}$ is open if and only if $\pi^{-1}\prs{V}$ is open. If $U \subseteq \mbb{H}$ is open,
+\[\pi^{-1}\prs{\pi\prs{U}} = \bigcup_{g \in \Gamma} gU\]
+is open as a union of open sets.
+
+Hence $\pi$ is open.
+
+\item Let $V \subseteq \quot{\mbb{H}}{\Gamma}$ be open. Then
+\[\tilde{\pi}\prs{\prs{\tau^{-1}\prs{\pi^{-1}\prs{V}}} \cap \bar{D}} \text{.}\]
+Denoting $U \ceq \prs{\tau^{-1}\prs{\pi^{-1}\prs{V}}} \cap \bar{D}$, this is open and
+\[\tilde{\pi}^{-1}\prs{\tilde{\pi}\prs{U}} = U\]
+is open, so $\tilde{\pi}\prs{U}$ is open.
+\end{itemize}
+\end{proof}
+
+\begin{example}
+Let $X = \mbb{C} \setminus \set{0}$ and $g \colon X \to X$ given by $g\prs{z} = 2z$. Then a fundamental domain for example is $\set{z \in \mbb{Z}}{\abs{z} \in \prs{1,2}}$. Then $\quot{\bar{D}}{\Gamma} \cong \mbb{T}^2$ is compact.
+
+A different fundamental domain would be the same set with the part where $x,y \geq 1$ replaced by the domain bounded by $y = e^{-x}$ and $y = \frac{1}{2} e^{-x}$. In this case $\quot{\bar{D}}{\Gamma}$ is non-compact.
+\end{example}
+
+\begin{example}
+\begin{enumerate}
+\item Let $\ell, \ell'$ be distinct geodesics with different end-points. There are points $p \in \ell$ and $p'\in\ell'$ such that $\rho\prs{\ell, \ell'} = \rho\prs{p, p'}$ and $p,p'$ are unique.
+
+\item If $\ell$ is a geodesic and $p \notin \ell$, there exists a unique $p' \in \ell$ such that $\rho\prs{p, p'} = \rho\prs{p, \ell}$ and the geodesic between $p,p'$ is orthogonal to $\ell$.
+
+\item Let $g \in \mrm{PSL}_2\prs{\mbb{R}}$ be a hyperbolic element and let $\ell, \ell'$ be disjoint gedesics such that $g\prs{\ell} = \ell'$. Let $A,B,C$ be the domains bounded by $\ell, \ell'$, let $p,p'$ be as in 1 and let $w$ be the midpoint of $\brs{p,p'}$. See figure
+%TODO add figure 1.5
+Then for every $z \in A$ it holds that $d\prs{z,w} > d\prs{gz, w}$.
+
+\begin{proof}
+Without loss of generality assume $g\prs{z} = kz$ for $k > 1$. Then
+\begin{align*}
+\ell &= \set{z \in \mbb{H}}{\abs{z} = r} \\
+\ell' &= \set{z \in \mbb{H}}{\abs{z} = kr} \text{.}
+\end{align*}
+\begin{itemize}
+\item If $z = iy$ and $ky \leq r \sqrt{k}$ then $\abs{z} < \abs{ir} < \abs{gz} < \abs{ir}\sqrt{k}$.
+\item If $z = iy$ and $ky > r \sqrt{k}$ then
+\[\rho\prs{z,w} = \ln\frac{r \sqrt{k}}{y} > \ln\sqrt{k} > \ln\frac{ky}{r \sqrt{k}} = \rho\prs{gz, w} \text{.}\]
+\item In general, let $z'$ be the orthogonal projection of $z$ to $i\mbb{R}_+$. Then $gz'$ is the orthogonal projection of $gz$.
+
+Then
+\begin{align*}
+\cosh \rho\prs{z,w} = \underset{\cosh\prs{gz, gz'}}{\underbrace{\cosh\prs{z,z'}}} \cosh\prs{z', w} > \cosh\prs{gz, gz'} \cosh\prs{gz', w} = \cosh\prs{gz,w} \text{,}
+\end{align*}
+where inequality follows from the previous case.
+\end{itemize}
+\end{proof}
+\end{enumerate}
+\end{example}
+
+\begin{example}
+Let $g,h \in \mrm{PSL}_2\prs{\mbb{Z}}$ be $g\prs{z} = 2z$ and $h\prs{z} = \frac{3z + 4}{2z + 3}$.
+Consider the domains in the figure %TODO add reference
+%TODO add fig. 1.6
+Then
+\begin{align*}
+g\prs{\mbb{H} \setminus \bar{B}} &= E \\
+g^{-1}\prs{\mbb{H} \setminus \bar{E}} &= B
+\end{align*}
+and
+\begin{align*}
+h\prs{\mbb{H} \setminus A} &= C \\
+h^{-1}\prs{\mbb{H} \setminus \bar{C}} &= A \text{.}
+\end{align*}
+For every $k \in \Gamma \setminus \set{\id}$ where $\Gamma = \trs{g,h}$. We have $kw \notin D$.
+In particular, $\Gamma w$ is discrete, so $\Gamma$ is discrete.
+
+$D$ is a fundamental domain for $\Gamma$.
+\begin{itemize}
+\item We showed that every orbit intersects $D$ in at most one point.
+\item Assume $z \notin \bar{D}$ so that $z \in A \cup B \cup C \cup E$.
+\begin{itemize}
+\item If $z \in B$, we have $\rho\prs{z,w} > \rho\prs{gz, w}$.
+\item If $z \in C$, we have $\rho\prs{z,w} > \rho\prs{h^{-1} z, w}$.
+\item If $z \in A$, we have $\rho\prs{z,w} > \rho\prs{hz, w}$.
+\item If $z \in E$, we have $\rho\prs{z,w} > \rho\prs{g^{-1}z, w}$.
+\end{itemize}
+By taking $z' \in \Gamma z$ that minimises the distance to $w$ (which exists since $\Gamma$ acts properly discontinuously), so we get $z' \in \bar{D}$.
+
+We have that $\quot{\bar{D}}{\Gamma}$ is a punctured torus. In particular, this has no boundary. We later construct a different fundamental domain which has a boundary.
+\end{itemize}
+\end{example}
+
 \end{document}
