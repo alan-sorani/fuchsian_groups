@@ -1272,42 +1272,12 @@ is open, so $\tilde{\pi}\prs{U}$ is open.
 \end{itemize}
 \end{proof}
 
+\subsection{Examples}
+
 \begin{example}
 Let $X = \mbb{C} \setminus \set{0}$ and $g \colon X \to X$ given by $g\prs{z} = 2z$. Then a fundamental domain for example is $\set{z \in \mbb{Z}}{\abs{z} \in \prs{1,2}}$. Then $\quot{\bar{D}}{\Gamma} \cong \mbb{T}^2$ is compact.
 
 A different fundamental domain would be the same set with the part where $x,y \geq 1$ replaced by the domain bounded by $y = e^{-x}$ and $y = \frac{1}{2} e^{-x}$. In this case $\quot{\bar{D}}{\Gamma}$ is non-compact.
-\end{example}
-
-\begin{example}
-\begin{enumerate}
-\item Let $\ell, \ell'$ be distinct geodesics with different end-points. There are points $p \in \ell$ and $p'\in\ell'$ such that $\rho\prs{\ell, \ell'} = \rho\prs{p, p'}$ and $p,p'$ are unique.
-
-\item If $\ell$ is a geodesic and $p \notin \ell$, there exists a unique $p' \in \ell$ such that $\rho\prs{p, p'} = \rho\prs{p, \ell}$ and the geodesic between $p,p'$ is orthogonal to $\ell$.
-
-\item Let $g \in \mrm{PSL}_2\prs{\mbb{R}}$ be a hyperbolic element and let $\ell, \ell'$ be disjoint gedesics such that $g\prs{\ell} = \ell'$. Let $A,B,C$ be the domains bounded by $\ell, \ell'$, let $p,p'$ be as in 1 and let $w$ be the midpoint of $\brs{p,p'}$. See figure
-%TODO add figure 1.5
-Then for every $z \in A$ it holds that $d\prs{z,w} > d\prs{gz, w}$.
-
-\begin{proof}
-Without loss of generality assume $g\prs{z} = kz$ for $k > 1$. Then
-\begin{align*}
-\ell &= \set{z \in \mbb{H}}{\abs{z} = r} \\
-\ell' &= \set{z \in \mbb{H}}{\abs{z} = kr} \text{.}
-\end{align*}
-\begin{itemize}
-\item If $z = iy$ and $ky \leq r \sqrt{k}$ then $\abs{z} < \abs{ir} < \abs{gz} < \abs{ir}\sqrt{k}$.
-\item If $z = iy$ and $ky > r \sqrt{k}$ then
-\[\rho\prs{z,w} = \ln\frac{r \sqrt{k}}{y} > \ln\sqrt{k} > \ln\frac{ky}{r \sqrt{k}} = \rho\prs{gz, w} \text{.}\]
-\item In general, let $z'$ be the orthogonal projection of $z$ to $i\mbb{R}_+$. Then $gz'$ is the orthogonal projection of $gz$.
-
-Then
-\begin{align*}
-\cosh \rho\prs{z,w} = \underset{\cosh\prs{gz, gz'}}{\underbrace{\cosh\prs{z,z'}}} \cosh\prs{z', w} > \cosh\prs{gz, gz'} \cosh\prs{gz', w} = \cosh\prs{gz,w} \text{,}
-\end{align*}
-where inequality follows from the previous case.
-\end{itemize}
-\end{proof}
-\end{enumerate}
 \end{example}
 
 \begin{example}
@@ -1342,5 +1312,152 @@ By taking $z' \in \Gamma z$ that minimises the distance to $w$ (which exists sin
 We have that $\quot{\bar{D}}{\Gamma}$ is a punctured torus. In particular, this has no boundary. We later construct a different fundamental domain which has a boundary.
 \end{itemize}
 \end{example}
+
+\begin{proposition}
+Let $\ell$ be a geodesic line and let $x \in \mbb{H}$ such that $x \notin \ell$. There exists a unique $y \in \ell$ such that $d_{\mbb{H}}\prs{x,y} = d_{\mbb{H}}\prs{x,\ell}$, and the geodesic segment $\brs{x,y}$ is orthogonal to $\ell$.
+\end{proposition}
+
+\begin{proof}
+Assume $z \in \ell$ doesn't satisfy $\brs{x,z} \perp \ell$ and let $y$ be such that $\brs{x,y} \perp \ell$.  By the Pythagorean theorem
+\[\cosh\prs{d_{\mbb{H}}\prs{x,z}} = \cosh\prs{d_{\mbb{H}}\prs{x,y}} \cosh\prs{d_{\mbb{H}}}\prs{y,z}\]
+where $\cosh\prs{d_{\mbb{H}}}\prs{y,z} > 1$.
+\end{proof}
+
+\begin{proposition}
+Let $\ell, \ell'$ be ultra-prallel geodeisc lines. There exists a unique $p \in \ell$ and $p' \in \ell'$ such that  $d_{\mbb{H}}\prs{p,p'} = d_{\mbb{H}}\prs{\ell, \ell'}$.
+\end{proposition}
+
+\begin{proof}
+Existence follows from the fact that the hyperbolic distance increases near infinity, so we can restrict to compact subsets.
+
+For uniqueness, assume there are points $q \in \ell$ and $q' \in \ell'$ not on the orthogonal line to $\mbb{R}$ through the centre of the circle through $\ell$.
+Let $y$ be the centre of the circle in which the geodesic $s$ through $q,q'$ passes through, and let $r$ be its Euclidean radius. Then $y^2 = r^2 + t^2 = r^2 + s^2$ and $s > t - x$ where $t$ is the radius of the circle bounded by $\ell$.
+\end{proof}
+
+\begin{proposition}
+Let $g \in \mrm{PSL}_2\prs{\mbb{R}}$ be hyperbolic and let $\ell,\ell'$ be ultra-parallel geodesics such that $g\prs{\ell} = \ell$, such that $g\prs{z} = kz$ for $k > 1$ and that
+\begin{align*}
+\ell &= \set{z \in \mbb{H}}{\abs{z} = r} \\
+\ell' &= \set{z \in \mbb{H}}{\abs{z} = kr} \text{.}
+\end{align*}
+Let $p,p'$ be the points minimising the distance between $\ell,\ell'$ and let $w$ be the mid-point of $\brs{p,p'}$, then $w = ir \sqrt{k}$.
+Let
+\begin{align*}
+A &\ceq \set{z \in \mbb{H}}{\abs{z} < r} \\
+B &\ceq \set{z \in \mbb{H}}{\abs{z} \in \prs{r, kr}} \\
+C &\ceq \set{z \in \mbb{H}}{\abs{z} > kr} \text{.}
+\end{align*}
+Then for every $z \in A$ it holds that
+\[d_{\mbb{H}}\prs{z,w} > d\prs{gz, w} \text{.}\]
+\end{proposition}
+
+\begin{proof}
+First consider a few cases.
+\begin{itemize}
+\item
+If $z = iy$ and $ky \leq r \sqrt{k}$, the claim is clear.
+\item
+If $z = iy$ and $ky > r \sqrt{k}$, then \[d_{\mbb{H}}\prs{z,w} = \ln\prs{\frac{r\sqrt{k}}{y}} > \ln\sqrt{k} > \ln\prs{\frac{ky}{r \sqrt{k}}} = \rho\prs{gz, w} \text{.}\]
+Let $\gamma = \brs{z,z'}$, then $g\gamma = \brs{gz, gz'}$ because $g$ sends geodesics to geodesics.
+Then by the Pythagorean theorem
+\begin{align*}
+\cosh d_{\mbb{H}} \prs{z,w} &= \cosh d_{\mbb{H}}\prs{z,z'} \cosh d_{\mbb{H}}\prs{z',w}
+\\&>
+\cosh d_{\mbb{H}} \prs{gz, gz'} \cdot \cosh d_{\mbb{H}} \prs{gz', w}
+\\&= \cosh d_{\mbb{H}}\prs{gz, w} \text{.}
+\end{align*}
+\end{itemize}
+\end{proof}
+
+\begin{lemma}[Ping-Pong Lemma]
+Let $G$ be a group which acts on a set $X$. Let $A+, A^-, B^+, B^-$ be disjoint subsets of $X$ and let $g,h \in G$ such that the following hold.
+\begin{enumerate}
+\item $C \ceq X \setminus A^+ \cup A^- \cup B^+ \cup B^- \neq \ns$.
+\item For all $n \in \mbb{N}_+$ it holds that
+\begin{align*}
+g^n\prs{X \setminus A^-} &\subseteq A^+ \\
+g^{-n}\prs{X \setminus A^+} &\subseteq A^- \text{.}
+\end{align*}
+\item For all $n \in \mbb{N}_+$ it holds that
+\begin{align*}
+h^n\prs{X \setminus B^-} &\subseteq B^+ \\
+h^{-n}\prs{X \setminus B^+} &\subseteq B^- \text{.}
+\end{align*}
+\end{enumerate}
+Then $\trs{g,h}$ is a non-abelian free group.
+Moreover, if $f \in \trs{g,h}$ is a non-identity element and $c \in C$ then
+\begin{enumerate}
+\item If $f$ ends with $g$ as a reduced word then $fc \in A^+$.
+\item If $f$ ends with $g^{-1}$ as a reduced word then $fc \in A^-$.
+\item If $f$ ends with $h$ as a reduced word then $fc \in B^+$.
+\item If $f$ ends with $h^{-1}$ as a reduced word then $fc \in B^-$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $w\prs{x,y}$ be a reduced word different than $1$. We will prove by induction on the length of $w$ that $w\prs{g,h} = f$ satisfies the properties.
+
+In the base case $w \in \set{x, x^{-1}, y, y^{-1}}$ and the claim follows from the assumption.
+
+Assume now that $w\prs{x,y} = z w'$ where $z \in \set{x, x^{-1}, y, y^{-1}}$. Assume WLOG that $z = x$. Since $w$ is reduced, $w'$ does not end with $x^{-1}$. By induction we have $w'\prs{g,h} c \in A^+ \cup B^+ \cup B^{-1}$, which is disjoint from $A^{-1}$, so by assumption $w\prs{g,h} c = g\prs{w'\prs{g,h} c} \in A^+$.
+\end{proof}
+
+\begin{example}
+Let $g,h \in \mrm{PSL}_2\prs{\mbb{Z}}$, let $g\prs{z} = 2z$ and let $h\prs{z} = \frac{3z + 4}{2z + 3}$.
+Consider figure %TODO add ref 1.7
+%TODO add fig 1.7
+with $A^-, A^+, B^-, B^+$ closed.
+$g,h$ satisfy the assumptions of the previous lemma, hence $\trs{g,h}$ is a free group and every orbit intersects $C$ in at most one point.
+
+We claim $C$ is in fact a fundamental domain. Let $p \in \ell$, $p' \in \ell'$, $q \in m$ and $q' \in m'$ such that $d_{\mbb{H}}\prs{\ell, \ell'} = d_{\mbb{H}}\prs{p,p'}$ and $d_{\mbb{H}}\prs{m,m'} = d_{\mbb{H}}\prs{q,q'}$.
+Denote $w = i \sqrt{2}$. Then $w$ is the mid-point of both $\brs{p,p'}, \brs{q,q'}$.
+
+By the lemma if $x \in \bar{C}$ then $x$ is in the interior of $A \cup A^- \cup B \cup B^-$.
+Hence there exists $f \in \set{g, g^{-1}, h, h^{-1}}$ such that $d\prs{x,m} > d\prs{fx, m}$.
+Since the action is properly discontinuous, there exists $y \in G x$ such that $d\prs{m, y} = d\prs{Gx, m}$ so $y$ must belong to $\bar{C}$.
+
+Let $t \in \ell$. Then $t, 2t$ are two points on the boundary of $C$ which are in the same $G$-orbit. We claim that $G \cdot t \cap \bar{C} = \set{t, 2t}$.
+Otherwise, there's $f \in G \setminus \set{g}$ such that $f\prs{\bar{C}} \ni 2t$ so $f C \cap C \neq \ns$, a contradiction.
+\end{example}
+
+\begin{definition}[Locally Finite Fundamental Domain]
+Let $\Gamma \leq \mrm{PSL}_2\prs{\mbb{R}}$ be a Fuchsian group. A fundamental domain $D$ for $\Gamma$ is called locally-finite if every compact subset of $\mbb{H}$ meets only finitely-many of $\set{g \bar{D}}{g \in \Gamma}$.
+\end{definition}
+
+\begin{lemma}
+$D$ is locally finite if and only if for every sequence $\prs{z_n}_{n \in \mbb{N}}$ of elements of $D$ and every sequence $\prs{g_n}_{n \in \mbb{N}}$ of distinct elements of $\Gamma$, the sequence $\prs{g_n z_n}_{n \in \mbb{N}}$ does not converge.
+\end{lemma}
+
+\begin{proof}
+Assume there are sequences $\prs{z_n}_{n\ in \mbb{N}}$ and $\prs{g_n}_{n \in \mbb{N}}$ as above such that $\lim_{n\to\infty} g_n z_N = w$. Then any compact neighbourhood of $w$ meets infinitely many $g_n D$ so $D$ isn't locally finite.
+
+Assume now that $D$ is not locally finite. Then there exist a compact subset $K \subseteq D$ and a sequence $\prs{g_n}_{n \in \mbb{N}}$ of distinct elements of $\Gamma$ such that for every $n$, $g_n \bar{D} \cap K \neq \ns$. For every $n \in \mbb{N}$ pick $z_n \in \bar{D} \cap g_n K$, so $g_n z_n \in K$. By passing to a subsequence we can assume that $\prs{g_n z_n}_{n \in \mbb{N}}$ converges to a point $w \in K$. Since every $z_n$ belongs to $\bar{D}$ we can replace each $z_n$ with $z_n' \in D$ such that $\lim_{n \to \infty} g_n z_n = w$.
+\end{proof}
+
+\begin{theorem}
+Let $\Gamma$ be a Fuchsian group and let $D$ be a fundamental domain for $\Gamma$.
+Consider the following diagram.
+\[
+\begin{tikzcd}
+\bar{D} \arrow[r, "\tau"] \arrow[d, "\tilde{\pi}", swap] & \mbb{H} \arrow[d, "\pi"] \\
+\quot{\bar{D}}{\Gamma} \arrow[r, "\theta"] & \quot{\mbb{H}}{\Gamma}
+\end{tikzcd}
+\]
+Here $\theta$ is a homeomorphism iff $D$ is locally finite.
+\end{theorem}
+
+\begin{proof}
+We know that $\theta$ is bijective and continuous. To show $\theta$ is a homeomorphism it is therefore enough to show that if $A \subseteq \quot{\bar{D}}{\Gamma}$ is closed then $\theta\prs{A}$ is closed.
+Since $\quot{\mbb{H}}{\Gamma}$ is endowed with the quotient topology, a set $C \subseteq \quot{\mbb{H}}{\Gamma}$ is closed if and only if its inverse image is closed. In our case, this is true if and only if for every sequence $\prs{g_n}_{n \in \mbb{N}} \subseteq \Gamma$ and for every $\prs{z_n}_{n \in \mbb{N}} \subseteq \pi^{-1}\prs{C}$, if $\prs{g_n z_n}_{n \in \mbb{N}}$ converge then $\lim_{n\to\infty} g_n z_n \in \pi^{-1}\prs{c}$. By the lemma, this is equivalent to $D$ being locally-finite.
+
+Let $A \subseteq \quot{\bar{D}}{\Gamma}$ and denote $B = \tilde{\pi}^{-1}\prs{A}$ and $C = \theta\prs{A}$. Then $C$ is closed if and only if for every sequence $\prs{g_n}_{n \in \mbb{N}}$ of elements of $\Gamma$ and every sequence $\prs{z_n}_{n \in \mbb{N}}$ of elements of $B$ such that $\prs{g_n z_n}_{n \in \mbb{N}}$ converges to an element $w \in B = \pi^{-1}\prs{C} \cap \bar{D}$.
+
+Assume that $D$ is locally finite and $A \leq \quot{\bar{D}}{\Gamma}$ is closed. Then $B = \tilde{\pi}^{-1}\prs{A}$ is closed in $\bar{D}$ and thus in $\mbb{H}$. Let $\prs{z_n}_{n \in \mbb{N}}$ be a sequence of elements of $B$ and $\prs{g_n}_{n \in \mbb{N}}$ a sequence of elements of $\Gamma$ such that $\lim_{n\to\infty} g_n z_n = w \in \bar{D}$. Since $D$ is locally finite, by passing to a subsequence we may assume that there's $g \in \Gamma$ such that $g_n = g$ for every $n \in \mbb{N}$. Then $\lim_{n\to\infty} g z_n = w$ so $\lim_{n\to\infty} z_n = g^{-1} w \in B$ where this belongs to $B$ since $B$ is closed.
+Because $B$ is invariant under $\Gamma$ we get $w = g\prs{g^{-1}w} \in B$.
+
+Assume now that $D$ is not locally finite. Let $\prs{g_n}_{n \in \mbb{N}}$ be a sequence of distinct elements of $\Gamma$ and $\prs{z_n}_{n \in \mbb{n}}$ a sequence of elements  of $D$ such that $\lim_{n\to\infty} g_n z_N = w \in \bar{D}$. Since the action is properly discontinuous. By passing to a subsequence we may assume that $\prs{z_n}_{n \in \mbb{N}}$ are distinct and that $w \notin \prs{z_n}_{n \in \mbb{N}}$.
+We claim that the set $B \ceq \set{z_n}{n \in \mbb{N}}$ is closed. Otherwise, by passing to a subsequence we may assume that $\lim_{n\to\infty} z_n = z$.
+Then $\lim_{n\to\infty} g_n z_n = w$ so $\lim_{n\to\infty} g_n^{-1} w = z$, which is impossible since the $\Gamma$-action is properly-discontinuous. Denote $A = \tilde{\pi}\prs{B}$. Since $B \subseteq D$, we have $\tilde{\pi}^{-1}\prs{A} = B$, so $A$ is closed. But, $w \in \bar{D} \setminus B$ so $w \notin \pi^{-1}\prs{\theta\prs{A}}$, so $\theta\prs{A}$ is not closed.
+\end{proof}
 
 \end{document}
